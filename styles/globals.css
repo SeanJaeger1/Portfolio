@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --text-primary-color: #ffffff;
+  --text-secondary-color: #a3a3a3;
+  --background-color: #101010;
+
+  --header-font-size: 34px;
+  --general-font-size: 20px;
+  --small-font-size: 14px;
+  --link-text-font-size: 16px;
+  --sub-header-font-size: 28px;
+  --menu-text-font-size: 24px;
+}
