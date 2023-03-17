@@ -14,3 +14,24 @@
   --sub-header-font-size: 28px;
   --menu-text-font-size: 24px;
 }
+
+.site-container {
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+.header {
+  font-size: var(--header-font-size);
+  color: var(--text-primary-color);
+}
+
+.text-general {
+  font-size: var(--general-font-size);
+  color: var(--text-primary-color);
+  max-width: 500px;
+}
+
+.link-text {
+  font-size: var(--small-font-size);
+  color: var(--text-secondary-color);
+}
