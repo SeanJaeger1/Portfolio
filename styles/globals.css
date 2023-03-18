@@ -35,3 +35,8 @@
   font-size: var(--small-font-size);
   color: var(--text-secondary-color);
 }
+
+.menu-text {
+  font-size: var(--menu-text-font-size);
+  color: var(--text-secondary-color);
+}
