@@ -40,3 +40,8 @@
   font-size: var(--menu-text-font-size);
   color: var(--text-secondary-color);
 }
+
+.subheader {
+  font-size: var(--sub-header-font-size);
+  color: var(--text-primary-color);
+}

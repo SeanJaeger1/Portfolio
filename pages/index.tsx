@@ -1,6 +1,8 @@
 import Head from "next/head"
 import Image from "next/image"
 import headshotImage from "@/public/headshot.png"
+import HLImage from "@/public/HLscreenshot.jpg"
+import CPImage from "@/public/CPscreenshot.png"
 
 export default function Home() {
   return (
@@ -74,6 +76,55 @@ export default function Home() {
               I'm deeply passionate about tackling big problems in all fields
               and love to jump in head first to new challenges.
             </p>
+          </section>
+          <section id="work" aria-label="My work portfolio" className="mt-24">
+            <div className="header">My Work</div>
+            <div className="mb-12">
+              <div className="subheader mt-6 mb-4">Human Lambdas</div>
+              <Image
+                src={HLImage}
+                width={500}
+                height={350}
+                alt="Human Lambdas App Screenshot"
+              />
+              <p className="text-general mt-6">
+                After joining Human Lambdas (Seedcamp backed) as a founding
+                engineer, I worked full stack on both the TypeScript React web
+                app and Django Back End creating Human In The Loop
+                infrastructure for reliable and scalable data labeling.
+              </p>
+              <p className="text-general mt-6">
+                Working within a start-up of four, I wore many hats and made
+                various contributions to everything from UI/UX to broader
+                discussions about company strategy, whilst receiving mentorship
+                from my colleagues.
+              </p>
+            </div>
+            <div>
+              <div className="subheader mt-6 mb-4">Competitive Programming</div>
+              <Image
+                src={CPImage}
+                width={500}
+                height={350}
+                alt="Competitive Programming Profile Screenshot"
+              />
+              <p className="text-general mt-6">
+                As part of my studies of Computer Science, I have put my
+                knowledge into practice by competing in timed competitive
+                programming competitions using Python.
+              </p>
+              <p className="text-general mt-6">
+                These competitions involve four questions of increasing
+                difficulty, where a sufficiently asymptotically efficient
+                solution is required for all test cases to past.
+              </p>
+              <p className="text-general mt-6">
+                I've experienced great success in these competitions, achieving
+                a top 4% global ranking out of ~400,000 total participants. In
+                my most recent competition I placed in the top ~0.8% of a
+                competition with over 17,000 global participants.
+              </p>
+            </div>
           </section>
         </div>
       </main>
