@@ -28,7 +28,7 @@
 .text-general {
   font-size: var(--general-font-size);
   color: var(--text-primary-color);
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .link-text {

@@ -36,28 +36,28 @@ export default function Home() {
               />
             </div>
             <p className="text-general">
-              I'm a Front End developer and with significant experience working
-              in early-stage start up companies.
+              I&apos;m a Front End developer and with significant experience
+              working in early-stage start up companies.
             </p>
             <p className="text-general mt-6">
-              I'm passionate about product development and computer science,
-              currently competing actively as a competitive programmer in my
-              spare time.
+              I&apos;m passionate about product development and computer
+              science, currently competing actively as a competitive programmer
+              in my spare time.
             </p>
           </section>
           <section id="about" aria-label="About Sean Jaeger" className="mt-24">
             <div className="header">About Me</div>
-            <p className="text-general mt-6">Hi, I'm Sean.</p>
+            <p className="text-general mt-6">Hi, I&apos;m Sean.</p>
             <p className="text-general mt-6">
-              I've had a very non-traditional path into Software Engineering,
-              having taught myself JavaScript online whilst taking my A levels,
-              landing my first full time role and opting to take that instead of
-              attending university.
+              I&apos;ve had a very non-traditional path into Software
+              Engineering, having taught myself JavaScript online whilst taking
+              my A levels, landing my first full time role and opting to take
+              that instead of attending university.
             </p>
             <hr className="w-4  my-6" />
             <p className="text-general">
-              I've always maintained an extremely pragmatic approach to solving
-              business problems with well designed code.
+              I&apos;ve always maintained an extremely pragmatic approach to
+              solving business problems with well designed code.
             </p>
             <p className="text-general mt-6">
               Since my first two years of professional experience, I have taken
@@ -73,8 +73,8 @@ export default function Home() {
               Martial Arts to Chess.
             </p>
             <p className="text-general mt-6">
-              I'm deeply passionate about tackling big problems in all fields
-              and love to jump in head first to new challenges.
+              I&apos;m deeply passionate about tackling big problems in all
+              fields and love to jump in head first to new challenges.
             </p>
           </section>
           <section id="work" aria-label="My work portfolio" className="mt-24">
@@ -83,8 +83,8 @@ export default function Home() {
               <div className="subheader mt-6 mb-4">Human Lambdas</div>
               <Image
                 src={HLImage}
-                width={500}
-                height={350}
+                width={600}
+                height={326}
                 alt="Human Lambdas App Screenshot"
               />
               <p className="text-general mt-6">
@@ -104,8 +104,8 @@ export default function Home() {
               <div className="subheader mt-6 mb-4">Competitive Programming</div>
               <Image
                 src={CPImage}
-                width={500}
-                height={350}
+                width={600}
+                height={326}
                 alt="Competitive Programming Profile Screenshot"
               />
               <p className="text-general mt-6">
@@ -119,10 +119,10 @@ export default function Home() {
                 solution is required for all test cases to past.
               </p>
               <p className="text-general mt-6">
-                I've experienced great success in these competitions, achieving
-                a top 4% global ranking out of ~400,000 total participants. In
-                my most recent competition I placed in the top ~0.8% of a
-                competition with over 17,000 global participants.
+                I&apos;ve experienced great success in these competitions,
+                achieving a top 4% global ranking out of ~400,000 total
+                participants. In my most recent competition I placed in the top
+                ~0.8% of a competition with over 17,000 global participants.
               </p>
             </div>
           </section>
