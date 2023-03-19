@@ -3,6 +3,7 @@ import Image from "next/image"
 import headshotImage from "@/public/headshot.png"
 import HLImage from "@/public/HLscreenshot.jpg"
 import CPImage from "@/public/CPscreenshot.png"
+import SiteLink from "@/components/SiteLink"
 
 export default function Home() {
   return (
@@ -27,13 +28,36 @@ export default function Home() {
         <div>
           <section id="intro" aria-label="My introduction as a developer">
             <div className="header">Sean Jaeger</div>
-            <div className="my-4">
+            <div className="my-4 text-general">
+              Hey, I&apos;m Sean. A start-up focused software engineer.
+            </div>
+            <div className="my-4 flex flex-row">
               <Image
                 src={headshotImage}
                 width={108}
                 height={108}
                 alt="Sean Jaeger headshot photo"
               />
+              <div className="flex flex-col justify-between py-2 px-3">
+                <SiteLink
+                  src={"ExternalLink.svg"}
+                  text={"Check out my LeetCode"}
+                  url={"https://leetcode.com/seanjaeger/"}
+                  alt={"External link icon"}
+                />
+                <SiteLink
+                  src={"LinkedIn.svg"}
+                  text={"Check out my LinkedIn"}
+                  url={"https://www.linkedin.com/in/sean-jaeger/"}
+                  alt={"LinkedIn icon"}
+                />
+                <SiteLink
+                  src={"CV.svg"}
+                  text={"View my CV"}
+                  url={"Sean-Jaeger-CV.pdf"}
+                  alt={"CV icon"}
+                />
+              </div>
             </div>
             <p className="text-general">
               I&apos;m a Front End developer and with significant experience
