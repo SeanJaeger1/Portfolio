@@ -4,6 +4,7 @@ import headshotImage from "@/public/headshot.png"
 import HLImage from "@/public/HLscreenshot.jpg"
 import CPImage from "@/public/CPscreenshot.png"
 import SiteLink from "@/components/SiteLink"
+import ScrollLink from "@/components/ScrollLink"
 
 export default function Home() {
   return (
@@ -19,10 +20,16 @@ export default function Home() {
       </Head>
       <main className="site-container flex flex-row py-36 overflow-y-hidden">
         <aside className="w-1/3 flex flex-row-reverse px-12">
-          <div>
-            <div className="menu-text">Home</div>
-            <div className="menu-text">About</div>
-            <div className="menu-text">My Work</div>
+          <div className="flex flex-col">
+            <ScrollLink className="menu-text" href="#intro">
+              Home
+            </ScrollLink>
+            <ScrollLink className="menu-text" href="#about">
+              About
+            </ScrollLink>
+            <ScrollLink className="menu-text" href="#work">
+              My Work
+            </ScrollLink>
           </div>
         </aside>
         <div>
