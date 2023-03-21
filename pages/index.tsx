@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import Link from "next/link"
 import headshotImage from "@/public/headshot.png"
 import HLImage from "@/public/HLscreenshot.jpg"
 import CPImage from "@/public/CPscreenshot.png"
@@ -111,13 +112,18 @@ export default function Home() {
           <section id="work" aria-label="My work portfolio" className="mt-24">
             <div className="header">My Work</div>
             <div className="mb-12">
-              <div className="subheader mt-6 mb-4">Human Lambdas</div>
-              <Image
-                src={HLImage}
-                width={600}
-                height={326}
-                alt="Human Lambdas App Screenshot"
-              />
+              <Link
+                href="https://github.com/Human-Lambdas/human-lambdas"
+                target="_blank"
+              >
+                <div className="subheader mt-6 mb-4">Human Lambdas</div>
+                <Image
+                  src={HLImage}
+                  width={600}
+                  height={326}
+                  alt="Human Lambdas App Screenshot"
+                />
+              </Link>
               <p className="text-general mt-6">
                 After joining Human Lambdas (Seedcamp backed) as a founding
                 engineer, I worked full stack on both the TypeScript React web
@@ -132,13 +138,17 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <div className="subheader mt-6 mb-4">Competitive Programming</div>
-              <Image
-                src={CPImage}
-                width={600}
-                height={326}
-                alt="Competitive Programming Profile Screenshot"
-              />
+              <Link href="https://leetcode.com/problemset/all/" target="_blank">
+                <div className="subheader mt-6 mb-4">
+                  Competitive Programming
+                </div>
+                <Image
+                  src={CPImage}
+                  width={600}
+                  height={326}
+                  alt="Competitive Programming Profile Screenshot"
+                />
+              </Link>
               <p className="text-general mt-6">
                 As part of my studies of Computer Science, I have put my
                 knowledge into practice by competing in timed competitive
