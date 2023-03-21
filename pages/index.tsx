@@ -33,7 +33,7 @@ export default function Home() {
             </ScrollLink>
           </div>
         </aside>
-        <div>
+        <div className="pr-8">
           <section id="intro" aria-label="My introduction as a developer">
             <div className="header">Sean Jaeger</div>
             <div className="my-4 text-general">
