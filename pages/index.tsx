@@ -52,11 +52,11 @@ export default function Home() {
             <div className="my-4 text-general">
               Hey, I&apos;m Sean. A start-up focused software engineer.
             </div>
-            <div className="my-4 flex flex-row">
+            <div className="my-4 flex flex-row h-28">
               <Image
                 src={headshotImage}
-                width={108}
-                height={108}
+                width={112}
+                height={112}
                 alt="Sean Jaeger headshot photo"
               />
               <div className="flex flex-col justify-between py-2 px-3">
