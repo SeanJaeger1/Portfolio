@@ -38,7 +38,16 @@
 
 .menu-text {
   font-size: var(--menu-text-font-size);
-  color: var(--text-secondary-color);
+  color: var(--text-primary-color);
+}
+
+.mobile-scroll-link {
+  border: 1px solid white;
+  font-size: var(--menu-text-font-size);
+  color: var(--text-primary-color);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 400;
 }
 
 .subheader {

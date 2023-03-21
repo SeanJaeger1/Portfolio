@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      sm: "720px",
+      md: "1024px",
+    },
   },
   plugins: [],
 }
