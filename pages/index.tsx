@@ -19,8 +19,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
       </Head>
-      <main className="site-container flex flex-row py-36 overflow-y-hidden">
-        <aside className="w-1/3 flex flex-row-reverse px-12">
+      <main className="site-container flex flex-col sm:flex-row py-8 sm:py-36 overflow-y-hidden">
+        <aside className="hidden sm:flex w-1/3 flex-row-reverse px-12 md:px-20">
           <div className="flex flex-col">
             <ScrollLink className="menu-text" href="#intro">
               Home
@@ -33,7 +33,20 @@ export default function Home() {
             </ScrollLink>
           </div>
         </aside>
-        <div className="pr-8">
+        <nav className="px-4 w-full sm:hidden">
+          <div className="flex flex-row  w-full justify-between">
+            <ScrollLink className="mobile-scroll-link" href="#intro">
+              Home
+            </ScrollLink>
+            <ScrollLink className="mobile-scroll-link" href="#about">
+              About
+            </ScrollLink>
+            <ScrollLink className="mobile-scroll-link" href="#work">
+              My Work
+            </ScrollLink>
+          </div>
+        </nav>
+        <div className="px-4 py-4 sm:py-0">
           <section id="intro" aria-label="My introduction as a developer">
             <div className="header">Sean Jaeger</div>
             <div className="my-4 text-general">
@@ -138,7 +151,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <Link href="https://leetcode.com/problemset/all/" target="_blank">
+              <Link href="https://leetcode.com/seanjaeger/" target="_blank">
                 <div className="subheader mt-6 mb-4">
                   Competitive Programming
                 </div>
