@@ -9,7 +9,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        kaisei: ["Kaisei HarunoUmi", "serif"],
+        "open-sans": ["Open Sans", "sans-serif"],
+      },
+    },
     screens: {
       sm: "720px",
       md: "1024px",

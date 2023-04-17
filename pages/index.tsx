@@ -18,9 +18,13 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500;700&family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        />
       </Head>
-      <main className="site-container flex flex-col sm:flex-row py-8 sm:py-36 overflow-y-hidden">
-        <aside className="hidden sm:flex w-1/3 flex-row-reverse px-12 md:px-20">
+      <main className="site-container flex flex-col sm:flex-row py-8 sm:py-36 overflow-y-hidden font-open-sans">
+        <aside className="hidden sm:flex w-1/3 flex-row-reverse px-12 md:px-20 font-kaisei">
           <div className="flex flex-col">
             <ScrollLink className="menu-text" href="#intro">
               Home
@@ -33,7 +37,7 @@ export default function Home() {
             </ScrollLink>
           </div>
         </aside>
-        <nav className="px-4 w-full sm:hidden">
+        <nav className="px-4 w-full sm:hidden font-kaisei">
           <div className="flex flex-row  w-full justify-between">
             <ScrollLink className="mobile-scroll-link" href="#intro">
               Home
@@ -48,7 +52,7 @@ export default function Home() {
         </nav>
         <div className="px-4 py-4 sm:py-0">
           <section id="intro" aria-label="My introduction as a developer">
-            <div className="header">Sean Jaeger</div>
+            <div className="header font-kaisei">Sean Jaeger</div>
             <div className="my-4 text-general">
               Hey, I&apos;m Sean. A start-up focused software engineer.
             </div>
@@ -91,7 +95,7 @@ export default function Home() {
             </p>
           </section>
           <section id="about" aria-label="About Sean Jaeger" className="mt-24">
-            <div className="header">About Me</div>
+            <div className="header font-kaisei">About Me</div>
             <p className="text-general mt-6">Hi, I&apos;m Sean.</p>
             <p className="text-general mt-6">
               I&apos;ve had a very non-traditional path into Software
@@ -123,13 +127,15 @@ export default function Home() {
             </p>
           </section>
           <section id="work" aria-label="My work portfolio" className="mt-24">
-            <div className="header">My Work</div>
+            <div className="header font-kaisei">My Work</div>
             <div className="mb-12">
               <Link
                 href="https://github.com/Human-Lambdas/human-lambdas"
                 target="_blank"
               >
-                <div className="subheader mt-6 mb-4">Human Lambdas</div>
+                <div className="subheader mt-6 mb-4 font-kaisei">
+                  Human Lambdas
+                </div>
                 <Image
                   src={HLImage}
                   width={600}
@@ -152,7 +158,7 @@ export default function Home() {
             </div>
             <div>
               <Link href="https://leetcode.com/seanjaeger/" target="_blank">
-                <div className="subheader mt-6 mb-4">
+                <div className="subheader mt-6 mb-4 font-kaisei">
                   Competitive Programming
                 </div>
                 <Image
