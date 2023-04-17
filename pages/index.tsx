@@ -128,6 +128,7 @@ export default function Home() {
           </section>
           <section id="work" aria-label="My work portfolio" className="mt-24">
             <div className="header font-kaisei">My Work</div>
+            <hr className="w-10  my-6" />
             <div className="mb-12">
               <Link
                 href="https://github.com/Human-Lambdas/human-lambdas"
