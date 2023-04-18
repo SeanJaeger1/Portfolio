@@ -22,15 +22,20 @@ const WorkSection = () => {
           />
         </Link>
         <p className="text-general mt-6">
-          After joining Human Lambdas (Seedcamp backed) as a founding engineer,
-          I worked full stack on both the TypeScript React web app and Django
-          Back End creating Human In The Loop infrastructure for reliable and
-          scalable data labeling.
+          After joining Human Lambdas (Seedcamp backed) as a founding engineer
+          at 18, I worked full stack on both the TypeScript React web app and
+          Django Back End creating Human In The Loop infrastructure for reliable
+          and scalable data labeling.
         </p>
         <p className="text-general mt-6">
           Working within a start-up of four, I wore many hats and made various
           contributions to everything from UI/UX to broader discussions about
           company strategy, whilst receiving mentorship from my colleagues.
+        </p>
+        <p className="text-general mt-6">
+          This work experience has served as the cornerstone of my development
+          approach, having learned to focus on rapid iteration, quality and
+          resourcefulness.
         </p>
       </div>
       <div>
