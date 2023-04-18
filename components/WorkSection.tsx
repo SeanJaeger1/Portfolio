@@ -25,7 +25,7 @@ const WorkSection = () => {
           After joining Human Lambdas (Seedcamp backed) as a founding engineer
           at 18, I worked full stack on both the TypeScript React web app and
           Django Back End creating Human In The Loop infrastructure for reliable
-          and scalable data labeling.
+          and scalable data labelling.
         </p>
         <p className="text-general mt-6">
           Working within a start-up of four, I wore many hats and made various
@@ -34,7 +34,7 @@ const WorkSection = () => {
         </p>
         <p className="text-general mt-6">
           This work experience has served as the cornerstone of my development
-          approach, having learned to focus on rapid iteration, quality and
+          approach, having learned to focus on rapid iteration, quality, and
           resourcefulness.
         </p>
       </div>
@@ -58,13 +58,21 @@ const WorkSection = () => {
         <p className="text-general mt-6">
           These competitions involve four questions of increasing difficulty,
           where a sufficiently asymptotically efficient solution is required for
-          all test cases to past.
+          all test cases to pass.
         </p>
         <p className="text-general mt-6">
           I&apos;ve experienced great success in these competitions, achieving a
           top 4% global ranking out of ~400,000 total participants. In my most
-          recent competition I placed in the top ~0.8% of a competition with
+          recent competition, I placed in the top ~0.8% of a competition with
           over 17,000 global participants.
+        </p>
+        <p className="text-general mt-6">
+          Despite not being professional experience, I have found this to be one
+          of the most fruitful periods of my career. Coming back to development
+          and suddenly understanding many concepts that were previously a
+          mystery to me as well as being able to pick up new technologies with
+          ease was an incredible experience and felt like a great leap forward
+          in terms of my skill as an engineer.
         </p>
       </div>
     </section>
