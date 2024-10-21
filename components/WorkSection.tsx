@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectSection from './ProjectSection';
-import { projects, Project } from '../data/ProjectsData';
+import { projects, Project } from '../data/projectsData';
 
 const WorkSection: React.FC = () => {
   return (
