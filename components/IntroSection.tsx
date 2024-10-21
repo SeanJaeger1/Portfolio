@@ -1,4 +1,3 @@
-import headshotImage from "@/public/headshot.png"
 import Image from "next/image"
 import SiteLink from "./SiteLink"
 
@@ -10,12 +9,15 @@ const IntroSection = () => {
         Hey, I&apos;m Sean. A start-up focused software engineer.
       </div>
       <div className="my-4 flex flex-row h-28">
-        <Image
-          src={headshotImage}
-          width={112}
-          height={112}
-          alt="Sean Jaeger headshot photo"
-        />
+        <div className="relative w-28 h-28">
+          <Image
+            src="/headshot.jpg"
+            alt="Sean Jaeger headshot photo"
+            fill
+            className="rounded-full object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
         <div className="flex flex-col justify-between py-2 px-3">
           <SiteLink
             src={"ExternalLink.svg"}
