@@ -9,7 +9,7 @@ const IntroSection: FC = () => {
       <div className="my-4 text-general">
         Hey, I&apos;m Sean. A start-up focused software engineer.
       </div>
-      <div className="my-4 flex flex-row">
+      <div className="my-4 flex flex-row h-28">
         <div className="relative w-28 h-28">
           <Image
             src="/headshot.jpg"
@@ -19,7 +19,7 @@ const IntroSection: FC = () => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="flex flex-col justify-center space-y-2 ml-4">
+        <div className="flex flex-col justify-between py-2 px-3">
           <SiteLink
             src="/ExternalLink.svg"
             text="Check out my LeetCode"
@@ -35,7 +35,7 @@ const IntroSection: FC = () => {
           <SiteLink
             src="/CV.svg"
             text="View my CV"
-            url="Sean-Jaeger-CV.pdf"
+            url="/Sean-Jaeger-CV.pdf"
             alt="CV icon"
           />
         </div>

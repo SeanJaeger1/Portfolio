@@ -11,15 +11,15 @@ interface SiteLinkProps {
 
 const SiteLink: FC<SiteLinkProps> = ({ src, text, url, alt }) => {
   return (
-    <Link href={url} className="flex items-center space-x-2">
+    <Link href={url} className="flex-row flex link-text" target="_blank">
       <Image
         src={src}
         alt={alt}
         width={16}
         height={16}
-        className="object-contain"
+        className="mx-4"
       />
-      <span className="text-sm text-general">{text}</span>
+      <div>{text}</div>
     </Link>
   )
 }
