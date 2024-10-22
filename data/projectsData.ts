@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image';
 import HLImage from "@/public/HLscreenshot.jpg";
 import CPImage from "@/public/CPscreenshot.png";
-import DCImage from "@/public/DeleteCupsScreenshot.jpg";
+import RCImage from "@/public/RCScreenshot.jpg";
 
 export interface Project {
   title: string;
@@ -12,15 +12,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Delete Cups",
-    image: DCImage,
-    link: "https://delete.gorilla3.co.uk/",
+    title: "Recirculate Systems",
+    image: RCImage,
+    link: "https://www.recirculatesystems.com/",
     description: [
-      "At Delete Cups, I worked as a software engineer on a mission to reduce single-use cup waste through an innovative reusable cup system. Our goal was to eliminate the administrative hassle typically associated with reusable cup programs.",
+      "At Recirculate Systems, I worked as a software engineer on a mission to reduce single-use cup waste through an innovative reusable cup system. Our goal was to eliminate the administrative hassle typically associated with reusable cup programs.",
       "My role involved full-stack development, working with technologies such as React / Next.js for the frontend and Python, Go and Postgres for the backend. I contributed to the development of the main website, the user management system, and the integration with point-of-sale systems at partner cafes.",
       "One of my key contributions was developing the RFID tracking system for the cups. This involved creating a robust API to handle cup check-outs and returns, ensuring accurate tracking of cup usage and facilitating the seamless return process for users.",
       "I also played a crucial role in implementing the payment integration system, allowing for smooth transactions and automatic billing for unreturned cups. This required careful consideration of security measures and compliance with financial regulations.",
-      "Working at Delete Cups provided me with valuable experience in developing environmentally-focused technology solutions. It reinforced my skills in creating user-friendly interfaces and robust backend systems, while also helping me hone skills such as management & architecting solutions."
+      "Working at Recirculate Systems provided me with valuable experience in developing environmentally-focused technology solutions. It reinforced my skills in creating user-friendly interfaces and robust backend systems, while also helping me hone skills such as management & architecting solutions."
     ]
   },
   {
