@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { FC } from "react"
-import SiteLink from "./SiteLink"
+import Image from 'next/image'
+import { FC } from 'react'
+import SiteLink from './SiteLink'
 
 const IntroSection: FC = () => {
   return (
@@ -41,8 +41,8 @@ const IntroSection: FC = () => {
         </div>
       </div>
       <p className="text-general">
-        I&apos;m a Front End developer with significant experience working
-        in early-stage start up companies.
+        I&apos;m a Front End developer with significant experience working in
+        early-stage start up companies.
       </p>
       <p className="text-general mt-6">
         I&apos;m passionate about product development and computer science,

@@ -1,4 +1,4 @@
-import ScrollLink from "./ScrollLink"
+import ScrollLink from './ScrollLink'
 
 const Aside = () => {
   return (

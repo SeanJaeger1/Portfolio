@@ -1,9 +1,9 @@
-import Head from "next/head"
-import Aside from "@/components/Aside"
-import IntroSection from "@/components/IntroSection"
-import AboutSection from "@/components/AboutSection"
-import WorkSection from "@/components/WorkSection"
-import Nav from "@/components/Nav"
+import Head from 'next/head'
+import Aside from '@/components/Aside'
+import IntroSection from '@/components/IntroSection'
+import AboutSection from '@/components/AboutSection'
+import WorkSection from '@/components/WorkSection'
+import Nav from '@/components/Nav'
 
 export default function Home() {
   return (

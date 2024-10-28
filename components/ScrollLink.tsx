@@ -1,5 +1,5 @@
-import Link, { LinkProps } from "next/link"
-import React, { PropsWithChildren } from "react"
+import Link, { LinkProps } from 'next/link'
+import React, { PropsWithChildren } from 'react'
 
 type AnchorProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -11,11 +11,11 @@ type ScrollLinkProps = AnchorProps & LinkProps & PropsWithChildren
 const ScrollLink = ({ children, ...props }: ScrollLinkProps) => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
-    const targetId = e.currentTarget.href.replace(/.*\#/, "")
+    const targetId = e.currentTarget.href.replace(/.*\#/, '')
     const elem = document.getElementById(targetId)
     window.scrollTo({
       top: elem?.getBoundingClientRect().top,
-      behavior: "smooth",
+      behavior: 'smooth',
     })
   }
 
