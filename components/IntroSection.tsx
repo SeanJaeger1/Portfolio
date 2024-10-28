@@ -1,126 +1,115 @@
 import { FC } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ExternalLink, Linkedin, FileText } from 'lucide-react'
-
-interface LinkData {
-  icon: typeof ExternalLink
-  text: string
-  url: string
-  ariaLabel: string
-}
+import { Github, Linkedin, FileText, Terminal } from 'lucide-react'
+import Image from 'next/image'
 
 const IntroSection: FC = () => {
-  const links: LinkData[] = [
+  const links = [
     {
-      icon: ExternalLink,
-      text: 'LeetCode Profile',
-      url: 'https://leetcode.com/seanjaeger/',
-      ariaLabel: 'Visit my LeetCode profile',
+      icon: Github,
+      text: 'Github',
+      url: 'https://github.com/seanjaeger',
+      ariaLabel: 'View my GitHub profile',
     },
     {
       icon: Linkedin,
-      text: 'LinkedIn Profile',
+      text: 'LinkedIn',
       url: 'https://www.linkedin.com/in/sean-jaeger/',
       ariaLabel: 'Connect with me on LinkedIn',
     },
     {
+      icon: Terminal,
+      text: 'LeetCode',
+      url: 'https://leetcode.com/seanjaeger/',
+      ariaLabel: 'View my LeetCode profile',
+    },
+    {
       icon: FileText,
-      text: 'View CV',
+      text: 'CV',
       url: '/Sean-Jaeger-CV.pdf',
       ariaLabel: 'Download my CV',
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
-  }
-
   return (
-    <motion.section
+    <section
       id="intro"
-      aria-label="Introduction"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      className="max-w-2xl mx-auto px-4 py-8"
+      className="min-h-[90vh] flex flex-col justify-center relative"
     >
-      <motion.h1
-        variants={itemVariants}
-        className="text-4xl md:text-5xl font-kaisei font-bold text-slate-900 dark:text-slate-100"
-      >
-        Sean Jaeger
-      </motion.h1>
-
-      <motion.p
-        variants={itemVariants}
-        className="mt-4 text-lg text-slate-700 dark:text-slate-300"
-      >
-        Hey, I'm Sean. A start-up focused software engineer.
-      </motion.p>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-800 -z-10" />
 
       <motion.div
-        variants={itemVariants}
-        className="my-8 flex flex-col md:flex-row items-center gap-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="space-y-6"
       >
-        <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="relative w-32 h-32 mx-auto mb-8"
+        >
           <Image
             src="/headshot.jpg"
             alt="Sean Jaeger"
             fill
-            className="rounded-full object-cover shadow-lg"
-            sizes="(max-width: 768px) 128px, 160px"
+            className="rounded-full object-cover shadow-2xl ring-4 ring-white dark:ring-slate-700"
+            sizes="128px"
             priority
           />
+          <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-indigo-500 to-purple-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+            <Terminal className="w-4 h-4 text-white" />
+          </div>
+        </motion.div>
+
+        <div className="text-center space-y-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+          >
+            Sean Jaeger
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-xl text-slate-600 dark:text-slate-300"
+          >
+            Start-up Focused Software Engineer
+          </motion.p>
         </div>
 
-        <div className="flex flex-col gap-4">
-          {links.map(({ icon: Icon, text, url, ariaLabel }, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex justify-center gap-6 mt-8"
+        >
+          {links.map(({ icon: Icon, url, text, ariaLabel }) => (
             <motion.a
-              key={index}
+              key={url}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={ariaLabel}
-              className="flex items-center gap-3 text-slate-600 hover:text-slate-900 dark:text-slate-400 
-                dark:hover:text-slate-100 transition-colors duration-200"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              className="flex flex-col items-center gap-2 text-slate-600 hover:text-indigo-600 dark:text-slate-400 
+                dark:hover:text-indigo-400 transition-colors duration-200"
             >
-              <Icon className="w-5 h-5" />
-              <span className="text-base">{text}</span>
+              <div className="p-3 rounded-lg bg-white dark:bg-slate-800 shadow-md hover:shadow-xl transition-shadow duration-200">
+                <Icon className="w-6 h-6" />
+              </div>
+              <span className="text-sm font-medium">{text}</span>
             </motion.a>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
-
-      <motion.div variants={itemVariants} className="space-y-4">
-        <p className="text-lg text-slate-700 dark:text-slate-300">
-          I'm a Front End developer with significant experience working in
-          early-stage start up companies.
-        </p>
-
-        <p className="text-lg text-slate-700 dark:text-slate-300">
-          I'm passionate about product development and computer science,
-          currently competing actively as a competitive programmer in my spare
-          time.
-        </p>
-      </motion.div>
-    </motion.section>
+    </section>
   )
 }
 

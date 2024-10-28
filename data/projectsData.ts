@@ -9,6 +9,8 @@ export interface Project {
   image: StaticImageData
   link: string
   description: string[]
+  github?: string
+  tech: string[]
 }
 
 export const projects: Project[] = [
@@ -16,6 +18,15 @@ export const projects: Project[] = [
     title: 'Eloquent',
     image: EloquentImage,
     link: 'https://eloquent-nine.vercel.app/',
+    github: 'https://github.com/yourusername/eloquent', // Add if available
+    tech: [
+      'React Native',
+      'TypeScript',
+      'Expo',
+      'LLaMA 3',
+      'React Reanimated',
+      'Gesture Handler',
+    ],
     description: [
       'Eloquent is a cross-platform mobile application designed to enhance language learning through spaced repetition, leveraging locally run LLaMA 3 to generate a comprehensive database of definitions.',
       'Built using React Native and Expo, with TypeScript for type safety, the application delivers a native mobile experience while maintaining a single codebase for both iOS and Android platforms.',
@@ -28,6 +39,14 @@ export const projects: Project[] = [
     title: 'Recirculate Systems',
     image: RCImage,
     link: 'https://www.recirculatesystems.com/',
+    tech: [
+      'React',
+      'Next.js',
+      'Python',
+      'Go',
+      'PostgreSQL',
+      'RFID Integration',
+    ],
     description: [
       'At Recirculate Systems, I worked as a software engineer on a mission to reduce single-use cup waste through an innovative reusable cup system. Our goal was to eliminate the administrative hassle typically associated with reusable cup programs.',
       'My role involved full-stack development, working with technologies such as React / Next.js for the frontend and Python, Go and Postgres for the backend. I contributed to the development of the main website, the user management system, and the integration with point-of-sale systems at partner cafes.',
@@ -40,6 +59,8 @@ export const projects: Project[] = [
     title: 'Human Lambdas',
     image: HLImage,
     link: 'https://github.com/Human-Lambdas/human-lambdas',
+    github: 'https://github.com/Human-Lambdas/human-lambdas',
+    tech: ['TypeScript', 'React', 'Django', 'Python', 'UI/UX Design'],
     description: [
       'After joining Human Lambdas (Seedcamp backed) as a founding engineer at 18, I worked full stack on both the TypeScript React web app and Django Back End creating Human In The Loop infrastructure for reliable and scalable data labelling.',
       'Working within a start-up of four, I wore many hats and made various contributions to everything from UI/UX to broader discussions about company strategy, whilst receiving mentorship from my colleagues.',
@@ -50,6 +71,7 @@ export const projects: Project[] = [
     title: 'Competitive Programming',
     image: CPImage,
     link: 'https://leetcode.com/seanjaeger/',
+    tech: ['Python', 'Algorithms', 'Data Structures', 'Problem Solving'],
     description: [
       'As part of my studies of Computer Science, I have put my knowledge into practice by competing in timed competitive programming competitions using Python.',
       'These competitions involve four questions of increasing difficulty, where a sufficiently asymptotically efficient solution is required for all test cases to pass.',
