@@ -2,6 +2,8 @@ import { StaticImageData } from 'next/image';
 import HLImage from "@/public/HLscreenshot.jpg";
 import CPImage from "@/public/CPscreenshot.png";
 import RCImage from "@/public/RCScreenshot.jpg";
+import EloquentImage from "@/public/EloquentScreenshot.png";
+
 
 export interface Project {
   title: string;
@@ -11,6 +13,18 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Eloquent",
+    image: EloquentImage,
+    link: "https://eloquent-nine.vercel.app/",
+    description: [
+      "Eloquent is a cross-platform mobile application designed to enhance language learning through spaced repetition, leveraging locally run LLaMA 3 to generate a comprehensive database of definitions.",
+      "Built using React Native and Expo, with TypeScript for type safety, the application delivers a native mobile experience while maintaining a single codebase for both iOS and Android platforms.",
+      "Key features include vocabulary tracking through spaced repetition, pronunciation practice using Google's Text-to-Speech API via Expo's AV module, and a custom-generated definition database powered by local LLaMA 3 implementation.",
+      "The implementation involved solving complex technical challenges around mobile audio integration, state persistence, and smooth animations using React Native's Reanimated and Gesture Handler libraries.",
+      "The project follows professional development practices with a multi-stage CI/CD pipeline handling type checking, linting, web builds, and automated EAS builds for Android with different profiles for preview and production environments."
+    ]
+  },
   {
     title: "Recirculate Systems",
     image: RCImage,
