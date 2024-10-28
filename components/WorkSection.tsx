@@ -1,16 +1,33 @@
-import React from 'react'
-import ProjectSection from './ProjectSection'
-import { projects, Project } from '../data/projectsData'
+import { FC } from 'react'
+import { motion } from 'framer-motion'
+import ProjectCard from './ProjectCard'
+import { projects } from '../data/projectsData'
 
-const WorkSection: React.FC = () => {
+const WorkSection: FC = () => {
   return (
-    <section id="work" aria-label="My work portfolio" className="mt-24">
-      <div className="header font-kaisei">My Work</div>
-      <hr className="w-10 my-6" />
+    <section id="work" className="mt-24 scroll-mt-24">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-slate-200 mb-12"
+      >
+        My Work
+      </motion.h2>
 
-      {projects.map((project: Project, index: number) => (
-        <ProjectSection key={index} {...project} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <ProjectCard {...project} />
+          </motion.div>
+        ))}
+      </div>
     </section>
   )
 }
