@@ -1,7 +1,5 @@
 import { FC } from 'react'
 import { motion } from 'framer-motion'
-import Section from './Section'
-import { ANIMATION_VARIANTS } from '../constants/animations'
 
 const AboutSection: FC = () => {
   const paragraphs = [
@@ -14,17 +12,31 @@ const AboutSection: FC = () => {
   ]
 
   return (
-    <Section id="about" title="About Me">
-      {paragraphs.map((text, index) => (
-        <motion.p
-          key={index}
-          variants={ANIMATION_VARIANTS.item}
-          className="text-lg text-slate-700 dark:text-slate-300 mt-6 first:mt-0"
-        >
-          {text}
-        </motion.p>
-      ))}
-    </Section>
+    <section id="about" className="mt-24 scroll-mt-24">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-slate-200 mb-8"
+      >
+        About Me
+      </motion.h2>
+
+      <div className="space-y-6">
+        {paragraphs.map((text, index) => (
+          <motion.p
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="text-lg text-slate-400"
+          >
+            {text}
+          </motion.p>
+        ))}
+      </div>
+    </section>
   )
 }
 

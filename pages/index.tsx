@@ -26,10 +26,12 @@ const Home: FC = () => {
       <Navigation isMobile />
 
       {/* Main Content */}
-      <main className="w-full lg:pl-48 pb-20">
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-48 pb-20">
         <IntroSection />
-        <AboutSection />
-        <WorkSection />
+        <div className="max-w-4xl mx-auto">
+          <AboutSection />
+          <WorkSection />
+        </div>
       </main>
 
       <ScrollIndicator />

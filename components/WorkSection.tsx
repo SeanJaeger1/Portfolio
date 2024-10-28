@@ -1,17 +1,34 @@
 import { FC } from 'react'
-import Section from './Section'
+import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
 import { projects } from '../data/projectsData'
 
 const WorkSection: FC = () => {
   return (
-    <Section id="work" title="My Work">
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
+    <section id="work" className="mt-24 scroll-mt-24">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-slate-200 mb-12"
+      >
+        My Work
+      </motion.h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
       </div>
-    </Section>
+    </section>
   )
 }
 

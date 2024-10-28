@@ -15,6 +15,13 @@ const ScrollIndicator = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleClick = () => {
+    const aboutSection = document.getElementById('about')
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -24,6 +31,7 @@ const ScrollIndicator = () => {
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
           className="fixed bottom-24 right-4 z-50 lg:bottom-8 lg:right-8"
+          onClick={handleClick}
         >
           <motion.div
             animate={{
