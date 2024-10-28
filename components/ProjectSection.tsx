@@ -18,7 +18,16 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({
   <div className="mb-12">
     <Link href={link} target="_blank" rel="noopener noreferrer">
       <div className="subheader mt-6 mb-4 font-kaisei">{title}</div>
-      <Image src={image} width={600} height={326} alt={`${title} Screenshot`} />
+      <div className="relative w-full aspect-[600/326]">
+        <Image
+          src={image}
+          alt={`${title} Screenshot`}
+          fill
+          sizes="(max-width: 768px) 100vw, 600px"
+          className="object-contain"
+          priority={title.includes('CP')}
+        />
+      </div>
     </Link>
     {description.map((paragraph: string, index: number) => (
       <p key={index} className="text-general mt-6">
