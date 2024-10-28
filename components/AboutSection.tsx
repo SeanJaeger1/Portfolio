@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 
 const AboutSection: FC = () => {
   const paragraphs = [
-    "Hi, I'm Sean.",
-    "I've had a very non-traditional path into Software Engineering, having taught myself JavaScript online whilst taking my A levels, landing my first full time role and opting to take that instead of attending university.",
-    "I've always maintained an extremely pragmatic approach to solving business problems with well designed code.",
-    'Since my first two years of professional experience, I have taken a hiatus from my professional career and taken the time to learn the theory behind my work deeply. This involved self-teaching Computer Science topics, including but not limited to: Data Structures & Algorithms, Systems Design and Front End technologies.',
-    'Outside of tech, I have an eclectic mix of interests, from traveling the world as a Digital Nomad, to competing in Mixed Martial Arts to Chess.',
-    "I'm deeply passionate about tackling big problems in all fields and love to jump in head first to new challenges.",
+    "Hi, I'm Sean, a software engineer with four years of experience specializing in early-stage product-focused startups.",
+    'My journey into software engineering began unconventionally – self-teaching JavaScript during my A-levels and landing my first role as a founding engineer at Human Lambdas (Seedcamp backed) at age 18, where I contributed to building distributed data labeling infrastructure.',
+    "Since then, I've worked across various exciting projects: developing AI-curated learning platforms at Kimo, creating data analysis UIs at DataZoo, and most recently, leading software engineering initiatives at a stealth startup where I've implemented real-time user engagement systems using Go and Next.js.",
+    "I've taken time to deepen my theoretical foundation in Computer Science, particularly focusing on Data Structures & Algorithms. This dedication has led to ranking in the top 4% globally on LeetCode, and achieving top 0.8% placement in recent competitive programming competitions with over 17,000 participants.",
+    "My recent work includes developing Eloquent, a cross-platform mobile application for language learning that leverages locally-run LLaMA 3, and contributing to environmental sustainability through Recirculate Systems' innovative reusable cup tracking system.",
+    "Outside of tech, I embrace a diverse lifestyle as a Digital Nomad, engaging in Mixed Martial Arts and Chess. I'm driven by tackling complex challenges and creating impactful solutions across various domains.",
   ]
 
   return (
