@@ -8,7 +8,7 @@ const IntroSection: FC = () => {
     {
       icon: Github,
       text: 'Github',
-      url: 'https://github.com/seanjaeger',
+      url: 'https://github.com/SeanJaeger1',
       ariaLabel: 'View my GitHub profile',
     },
     {
