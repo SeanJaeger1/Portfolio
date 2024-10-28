@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: 'Eloquent',
     image: EloquentImage,
     link: 'https://eloquent-nine.vercel.app/',
-    github: 'https://github.com/yourusername/eloquent', // Add if available
+    github: 'https://github.com/SeanJaeger1/Eloquent',
     tech: [
       'React Native',
       'TypeScript',

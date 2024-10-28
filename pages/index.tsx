@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation'
 import IntroSection from '../components/IntroSection'
 import AboutSection from '../components/AboutSection'
 import WorkSection from '../components/WorkSection'
+import ScrollIndicator from '../components/ScrollIndicator'
 
 const Home: FC = () => {
   return (
@@ -17,7 +18,6 @@ const Home: FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 py-8 sm:py-16">
@@ -34,6 +34,7 @@ const Home: FC = () => {
           </div>
         </div>
       </div>
+      <ScrollIndicator />
     </>
   )
 }
