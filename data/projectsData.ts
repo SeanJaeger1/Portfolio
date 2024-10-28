@@ -11,6 +11,9 @@ export interface Project {
   description: string[]
   github?: string
   tech: string[]
+  timeline?: string
+  role?: string
+  impact?: string[]
 }
 
 export const projects: Project[] = [
@@ -19,6 +22,8 @@ export const projects: Project[] = [
     image: EloquentImage,
     link: 'https://eloquent-nine.vercel.app/',
     github: 'https://github.com/SeanJaeger1/Eloquent',
+    role: 'Solo Developer',
+    timeline: '2024',
     tech: [
       'React Native',
       'TypeScript',
@@ -28,17 +33,23 @@ export const projects: Project[] = [
       'Gesture Handler',
     ],
     description: [
-      'Eloquent is a cross-platform mobile application designed to enhance language learning through spaced repetition, leveraging locally run LLaMA 3 to generate a comprehensive database of definitions.',
-      'Built using React Native and Expo, with TypeScript for type safety, the application delivers a native mobile experience while maintaining a single codebase for both iOS and Android platforms.',
-      "Key features include vocabulary tracking through spaced repetition, pronunciation practice using Google's Text-to-Speech API via Expo's AV module, and a custom-generated definition database powered by local LLaMA 3 implementation.",
-      "The implementation involved solving complex technical challenges around mobile audio integration, state persistence, and smooth animations using React Native's Reanimated and Gesture Handler libraries.",
-      'The project follows professional development practices with a multi-stage CI/CD pipeline handling type checking, linting, web builds, and automated EAS builds for Android with different profiles for preview and production environments.',
+      'Eloquent is an innovative language learning platform that combines spaced repetition with AI-powered definitions, delivering a seamless mobile experience across iOS and Android.',
+      'The app leverages locally-run LLaMA 3 to generate comprehensive and contextual definitions, ensuring reliable access to high-quality learning materials without dependency on external APIs.',
+      'Built with React Native and Expo, the application emphasizes performance and user experience through fluid animations and gesture-based interactions.',
+    ],
+    impact: [
+      'Implemented an efficient spaced repetition algorithm to optimize vocabulary retention',
+      'Integrated local LLaMA 3 processing to generate contextually accurate definitions while maintaining user privacy',
+      'Developed a robust CI/CD pipeline with automated testing and platform-specific builds',
+      'Created an intuitive pronunciation practice system using Google TTS integration',
     ],
   },
   {
     title: 'Recirculate Systems',
     image: RCImage,
     link: 'https://www.recirculatesystems.com/',
+    role: 'Full Stack Engineer',
+    timeline: '2023',
     tech: [
       'React',
       'Next.js',
@@ -48,11 +59,15 @@ export const projects: Project[] = [
       'RFID Integration',
     ],
     description: [
-      'At Recirculate Systems, I worked as a software engineer on a mission to reduce single-use cup waste through an innovative reusable cup system. Our goal was to eliminate the administrative hassle typically associated with reusable cup programs.',
-      'My role involved full-stack development, working with technologies such as React / Next.js for the frontend and Python, Go and Postgres for the backend. I contributed to the development of the main website, the user management system, and the integration with point-of-sale systems at partner cafes.',
-      'One of my key contributions was developing the RFID tracking system for the cups. This involved creating a robust API to handle cup check-outs and returns, ensuring accurate tracking of cup usage and facilitating the seamless return process for users.',
-      'I also played a crucial role in implementing the payment integration system, allowing for smooth transactions and automatic billing for unreturned cups. This required careful consideration of security measures and compliance with financial regulations.',
-      'Working at Recirculate Systems provided me with valuable experience in developing environmentally-focused technology solutions. It reinforced my skills in creating user-friendly interfaces and robust backend systems, while also helping me hone skills such as management & architecting solutions.',
+      'Recirculate Systems revolutionized sustainable consumption through an innovative reusable cup system that eliminated single-use waste while maintaining convenience for both businesses and consumers.',
+      'As a key member of the engineering team, I developed full-stack solutions spanning from user-facing applications to complex backend systems handling real-time RFID tracking and payment processing.',
+      'The platform integrated seamlessly with existing point-of-sale systems, making adoption frictionless for partner cafes while ensuring accurate tracking and billing.',
+    ],
+    impact: [
+      'Architected and implemented the RFID tracking system, enabling real-time cup monitoring across multiple locations',
+      'Developed secure payment integration handling thousands of transactions with automated billing for unreturned cups',
+      'Created an intuitive management dashboard for partner cafes to track inventory and usage patterns',
+      'Established integration protocols with various point-of-sale systems, expanding platform compatibility',
     ],
   },
   {
@@ -60,23 +75,37 @@ export const projects: Project[] = [
     image: HLImage,
     link: 'https://github.com/Human-Lambdas/human-lambdas',
     github: 'https://github.com/Human-Lambdas/human-lambdas',
+    role: 'Founding Engineer',
+    timeline: '2019-2020',
     tech: ['TypeScript', 'React', 'Django', 'Python', 'UI/UX Design'],
     description: [
-      'After joining Human Lambdas (Seedcamp backed) as a founding engineer at 18, I worked full stack on both the TypeScript React web app and Django Back End creating Human In The Loop infrastructure for reliable and scalable data labelling.',
-      'Working within a start-up of four, I wore many hats and made various contributions to everything from UI/UX to broader discussions about company strategy, whilst receiving mentorship from my colleagues.',
-      'This work experience has served as the cornerstone of my development approach, having learned to focus on rapid iteration, quality, and resourcefulness.',
+      'Human Lambdas, backed by Seedcamp, pioneered Human-in-the-Loop infrastructure for reliable and scalable data labeling, enabling high-quality training data generation for machine learning systems.',
+      'As a founding engineer joining at 18, I played a crucial role in building both the TypeScript React frontend and Django backend, establishing core functionality and scalable architecture.',
+      'Working in a tight-knit team of four, I contributed across the full stack while participating in strategic decisions that shaped the product and company direction.',
+    ],
+    impact: [
+      'Built core features of the distributed data labeling platform from scratch',
+      'Implemented robust frontend state management and backend API architecture',
+      'Contributed to product strategy and technical decision-making as a founding team member',
+      'Collaborated on UI/UX design iterations to optimize user workflow efficiency',
     ],
   },
   {
     title: 'Competitive Programming',
     image: CPImage,
     link: 'https://leetcode.com/seanjaeger/',
+    timeline: '2021-2022',
     tech: ['Python', 'Algorithms', 'Data Structures', 'Problem Solving'],
     description: [
-      'As part of my studies of Computer Science, I have put my knowledge into practice by competing in timed competitive programming competitions using Python.',
-      'These competitions involve four questions of increasing difficulty, where a sufficiently asymptotically efficient solution is required for all test cases to pass.',
-      "I've experienced great success in these competitions, achieving a top 4% global ranking out of ~400,000 total participants. In my most recent competition, I placed in the top ~0.8% of a competition with over 17,000 global participants.",
-      'Despite not being professional experience, I have found this to be one of the most fruitful periods of my career. Coming back to development and suddenly understanding many concepts that were previously a mystery to me as well as being able to pick up new technologies with ease was an incredible experience and felt like a great leap forward in terms of my skill as an engineer.',
+      'During my focused study of Computer Science fundamentals, I immersed myself in competitive programming, tackling complex algorithmic challenges under time constraints.',
+      'Through consistent practice and deep understanding of data structures and algorithms, I achieved great success in global competitions, demonstrating both technical proficiency and problem-solving abilities.',
+      'This intensive period of study and practice markedly enhanced my ability to architect efficient solutions and quickly master new technologies.',
+    ],
+    impact: [
+      'Achieved top 4% global ranking among ~400,000 participants on LeetCode',
+      'Placed in top 0.8% in a recent competition with 17,000+ global participants',
+      'Mastered advanced algorithms and data structures through practical application',
+      'Developed strong problem-solving skills under time pressure',
     ],
   },
 ]
