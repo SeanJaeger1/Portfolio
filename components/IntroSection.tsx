@@ -73,7 +73,7 @@ const IntroSection: FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-purple-400 to-purple-600 pb-2"
+              bg-gradient-to-r from-purple-400 to-purple-600 pb-4"
           >
             Sean Jaeger
           </motion.h1>
