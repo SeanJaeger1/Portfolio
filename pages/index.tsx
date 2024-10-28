@@ -1,35 +1,41 @@
+import { FC } from 'react'
 import Head from 'next/head'
-import Aside from '@/components/Aside'
-import IntroSection from '@/components/IntroSection'
-import AboutSection from '@/components/AboutSection'
-import WorkSection from '@/components/WorkSection'
-import Nav from '@/components/Nav'
+import Navigation from '../components/Navigation'
+import IntroSection from '../components/IntroSection'
+import AboutSection from '../components/AboutSection'
+import WorkSection from '../components/WorkSection'
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <>
       <Head>
-        <title>Sean Jaeger</title>
+        <title>Sean Jaeger | Software Engineer</title>
         <meta
           name="description"
-          content="Sean Jaeger's Software Engineering portfolio"
+          content="Sean Jaeger - Software Engineer specializing in front-end development and early-stage startups"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500;700&family=Open+Sans:wght@300;400;600;700;800&display=swap"
-        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="site-container flex flex-col sm:flex-row py-8 sm:py-36 overflow-y-hidden font-open-sans">
-        <Aside />
-        <Nav />
-        <div className="px-4 py-4 sm:py-0">
-          <IntroSection />
-          <AboutSection />
-          <WorkSection />
+
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 py-8 sm:py-16">
+            <aside className="lg:col-span-1">
+              <Navigation className="hidden lg:block sticky top-8" />
+              <Navigation className="lg:hidden" />
+            </aside>
+
+            <main className="lg:col-span-3">
+              <IntroSection />
+              <AboutSection />
+              <WorkSection />
+            </main>
+          </div>
         </div>
-      </main>
+      </div>
     </>
   )
 }
+
+export default Home

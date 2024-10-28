@@ -1,17 +1,17 @@
-import React from 'react'
-import ProjectSection from './ProjectSection'
-import { projects, Project } from '../data/projectsData'
+import { FC } from 'react'
+import Section from './Section'
+import ProjectCard from './ProjectCard'
+import { projects } from '../data/projectsData'
 
-const WorkSection: React.FC = () => {
+const WorkSection: FC = () => {
   return (
-    <section id="work" aria-label="My work portfolio" className="mt-24">
-      <div className="header font-kaisei">My Work</div>
-      <hr className="w-10 my-6" />
-
-      {projects.map((project: Project, index: number) => (
-        <ProjectSection key={index} {...project} />
-      ))}
-    </section>
+    <Section id="work" title="My Work">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
+    </Section>
   )
 }
 
