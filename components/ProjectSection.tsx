@@ -25,7 +25,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({
           fill
           sizes="(max-width: 768px) 100vw, 600px"
           className="object-contain"
-          priority={title.includes('CP')}
+          loading="lazy"
         />
       </div>
     </Link>
