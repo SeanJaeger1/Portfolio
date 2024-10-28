@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import Head from 'next/head'
+import { Analytics } from '@vercel/analytics/react'
 import Navigation from '../components/Navigation'
 import IntroSection from '../components/IntroSection'
 import AboutSection from '../components/AboutSection'
@@ -18,6 +19,9 @@ const Home: FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Analytics */}
+      <Analytics />
 
       {/* Desktop Navigation */}
       <Navigation />
