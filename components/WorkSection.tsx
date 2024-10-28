@@ -5,7 +5,7 @@ import { projects } from '../data/projectsData'
 
 const WorkSection: FC = () => {
   return (
-    <section id="work" className="mt-24 scroll-mt-24">
+    <section id="work" className="my-16 scroll-my-16">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
