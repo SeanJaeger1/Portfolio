@@ -7,7 +7,6 @@ const ScrollIndicator = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Hide the indicator after scrolling down a bit
       const scrolled = window.scrollY > 100
       setIsVisible(!scrolled)
     }
@@ -24,7 +23,7 @@ const ScrollIndicator = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-8 right-8 z-50"
+          className="fixed bottom-24 right-4 z-50 lg:bottom-8 lg:right-8"
         >
           <motion.div
             animate={{
@@ -38,7 +37,7 @@ const ScrollIndicator = () => {
             className="group cursor-pointer flex flex-col items-center"
           >
             <div
-              className="bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full p-3 
+              className="bg-white/10 backdrop-blur-sm rounded-full p-3 
               shadow-lg ring-1 ring-white/20 group-hover:ring-purple-400/30 
               transition-all duration-300 group-hover:shadow-purple-500/20"
             >
