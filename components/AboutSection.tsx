@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const AboutSection: FC = () => {
   const paragraphs = [
-    "Hi, I'm Sean, a software engineer with four years of experience specializing in early-stage product-focused startups.",
+    "Hi, I'm Sean, a software engineer with five years of experience specializing in early-stage product-focused startups.",
     'My journey into software engineering began unconventionally – self-teaching JavaScript during my A-levels and landing my first role as a founding engineer at Human Lambdas (Seedcamp backed) at age 18, where I contributed to building distributed data labeling infrastructure.',
     "Since then, I've worked across various exciting projects: developing AI-curated learning platforms at Kimo, creating data analysis UIs at DataZoo, and most recently, leading software engineering initiatives at a stealth startup where I've implemented real-time user engagement systems using Go and Next.js.",
     "I've taken time to deepen my theoretical foundation in Computer Science, particularly focusing on Data Structures & Algorithms. This dedication has led to ranking in the top 4% globally on LeetCode, and achieving top 0.8% placement in recent competitive programming competitions with over 17,000 participants.",
