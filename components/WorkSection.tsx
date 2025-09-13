@@ -5,12 +5,12 @@ import { projects } from '../data/projectsData'
 
 const WorkSection: FC = () => {
   return (
-    <section id="work" className="my-16 scroll-my-16">
+    <section id="work" className="my-16 scroll-mt-16">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-slate-200 mb-12"
+        className="text-3xl md:text-4xl font-bold text-slate-800 mb-12"
       >
         My Work
       </motion.h2>

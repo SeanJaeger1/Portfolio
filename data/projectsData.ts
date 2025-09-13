@@ -14,6 +14,14 @@ export interface Project {
   timeline?: string
   role?: string
   impact?: string[]
+  metrics?: {
+    users?: string
+    funding?: string
+    timeline?: string
+    impact?: string
+  }
+  status?: 'Live' | 'In Development' | 'Completed'
+  featured?: boolean
 }
 
 export const projects: Project[] = [
@@ -24,6 +32,12 @@ export const projects: Project[] = [
     github: 'https://github.com/SeanJaeger1/Eloquent',
     role: 'Solo Developer',
     timeline: '2024',
+    status: 'Live',
+    featured: true,
+    metrics: {
+      timeline: '4 months',
+      impact: 'AI-powered learning',
+    },
     tech: [
       'React Native',
       'TypeScript',
@@ -50,6 +64,12 @@ export const projects: Project[] = [
     link: 'https://www.recirculatesystems.com/',
     role: 'Full Stack Engineer',
     timeline: '2023',
+    status: 'Live',
+    featured: true,
+    metrics: {
+      impact: 'Zero waste solution',
+      timeline: '2+ years',
+    },
     tech: [
       'React',
       'Next.js',
@@ -77,6 +97,11 @@ export const projects: Project[] = [
     github: 'https://github.com/Human-Lambdas/human-lambdas',
     role: 'Founding Engineer',
     timeline: '2019-2020',
+    status: 'Completed',
+    metrics: {
+      funding: 'Seedcamp backed',
+      timeline: 'One year',
+    },
     tech: ['TypeScript', 'React', 'Django', 'Python', 'UI/UX Design'],
     description: [
       'Human Lambdas, backed by Seedcamp, pioneered Human-in-the-Loop infrastructure for reliable and scalable data labeling, enabling high-quality training data generation for machine learning systems.',
@@ -95,6 +120,11 @@ export const projects: Project[] = [
     image: CPImage,
     link: 'https://leetcode.com/seanjaeger/',
     timeline: '2021-2022',
+    status: 'Completed',
+    metrics: {
+      impact: 'Top 3% globally',
+      timeline: '12 months',
+    },
     tech: ['Python', 'Algorithms', 'Data Structures', 'Problem Solving'],
     description: [
       'During my focused study of Computer Science fundamentals, I immersed myself in competitive programming, tackling complex algorithmic challenges under time constraints.',

@@ -17,7 +17,7 @@ const AboutSection: FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-slate-200 mb-8"
+        className="text-3xl md:text-4xl font-bold text-slate-800 mb-8"
       >
         About Me
       </motion.h2>
@@ -30,7 +30,7 @@ const AboutSection: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="text-lg text-slate-400"
+            className="text-lg text-slate-600"
           >
             {text}
           </motion.p>
