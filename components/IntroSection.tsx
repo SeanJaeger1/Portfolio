@@ -4,6 +4,14 @@ import { Github, Linkedin, Terminal, FileText } from 'lucide-react'
 import Image from 'next/image'
 
 const IntroSection: FC = () => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const href = e.currentTarget.href
+    const targetId = href.replace(/.*\#/, '')
+    const elem = document.getElementById(targetId)
+    elem?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const links = [
     {
       icon: Github,
@@ -159,6 +167,7 @@ const IntroSection: FC = () => {
         >
           <a
             href="#work"
+            onClick={handleScroll}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full
               bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-medium
               transition-all duration-200 shadow-lg hover:shadow-blue-500/20 transform hover:scale-105"
