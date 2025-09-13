@@ -107,19 +107,19 @@ const SkillsSection: FC = () => {
 
   const getCategoryColor = (color: string) => {
     const colors = {
-      purple: 'from-slate-50 to-slate-100/50 border-slate-200/60',
-      blue: 'from-blue-50/70 to-slate-50 border-blue-200/50',
-      green: 'from-emerald-50/70 to-slate-50 border-emerald-200/50',
-      orange: 'from-amber-50/70 to-slate-50 border-amber-200/50',
-      pink: 'from-rose-50/70 to-slate-50 border-rose-200/50',
-      yellow: 'from-yellow-50/70 to-slate-50 border-yellow-200/50'
+      purple: 'from-violet-50 to-purple-50 border-violet-200/60',
+      blue: 'from-blue-50 to-cyan-50 border-blue-200/60',
+      green: 'from-emerald-50 to-teal-50 border-emerald-200/60',
+      orange: 'from-amber-50 to-orange-50 border-amber-200/60',
+      pink: 'from-rose-50 to-pink-50 border-rose-200/60',
+      yellow: 'from-yellow-50 to-amber-50 border-yellow-200/60'
     }
     return colors[color as keyof typeof colors] || colors.purple
   }
 
   const getIconColor = (color: string) => {
     const colors = {
-      purple: 'text-slate-600',
+      purple: 'text-violet-600',
       blue: 'text-blue-600',
       green: 'text-emerald-600',
       orange: 'text-amber-600',
