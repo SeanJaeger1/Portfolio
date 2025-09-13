@@ -23,8 +23,8 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({
           src={image}
           alt={`${title} Screenshot`}
           fill
-          sizes="(max-width: 768px) 100vw, 600px"
           className="object-contain"
+          sizes="(max-width: 768px) 100vw, 600px"
           loading="lazy"
         />
       </div>
