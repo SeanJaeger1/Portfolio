@@ -76,10 +76,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
           src={image}
           alt={`${title} Screenshot - Click to visit project`}
           fill
-          className="object-cover object-top transform group-hover:scale-105 
+          className="object-cover object-top transform group-hover:scale-105
             transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
-          priority={featured}
         />
         <div
           className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent 
