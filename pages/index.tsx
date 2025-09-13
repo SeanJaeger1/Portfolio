@@ -20,7 +20,7 @@ const Home: FC = () => {
           content="Sean Jaeger - Software Engineer with 5+ years experience at early-stage startups. Top 3% LeetCode, full-stack development, and proven track record building products that secure funding."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       {/* Analytics */}
