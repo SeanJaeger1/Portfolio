@@ -3,8 +3,12 @@ import { motion } from 'framer-motion'
 
 const AboutSection: FC = () => {
   const paragraphs: ReactNode[] = [
-    "Hi, I'm Sean 👋",
-    "I'm a software engineer who thrives in the chaos of early-stage startups. Over the past five years, I've helped build products that secured millions in funding and scaled to thousands of users.",
+    <>Hi, I'm Sean 👋</>,
+    <>
+      I'm a software engineer who thrives in the chaos of early-stage startups.
+      Over the past five years, I've helped build products that secured millions
+      in funding and scaled to thousands of users.
+    </>,
     <>
       <strong>My superpower?</strong> Turning ambitious ideas into working
       products, fast. At Kimo, I built an MVP in 6 weeks that directly secured
