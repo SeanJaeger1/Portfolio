@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 
 const AboutSection: FC = () => {
   const paragraphs: ReactNode[] = [
-    <>Hi, I'm Sean 👋</>,
+    <>Hi, I&apos;m Sean 👋</>,
     <>
-      I'm a software engineer who thrives in the chaos of early-stage startups.
-      Over the past five years, I've helped build products that secured millions
-      in funding and scaled to thousands of users.
+      I&apos;m a software engineer who thrives in the chaos of early-stage
+      startups. Over the past five years, I&apos;ve helped build products that
+      secured millions in funding and scaled to thousands of users.
     </>,
     <>
       <strong>My superpower?</strong> Turning ambitious ideas into working
@@ -17,19 +17,19 @@ const AboutSection: FC = () => {
       that became the cornerstone of their Series A pitch.
     </>,
     <>
-      <strong>Currently</strong>, I'm at Recirculate Systems, where I've built a
-      real-time tracking system handling 10,000+ concurrent connections using Go
-      and WebSockets. Before this, I scaled Rentokil's IoT platform managing
-      20,000+ devices across the UK, boosting test coverage from 62% to 81%
-      along the way.
+      <strong>Currently</strong>, I&apos;m at Recirculate Systems, where
+      I&apos;ve built a real-time tracking system handling 10,000+ concurrent
+      connections using Go and WebSockets. Before this, I scaled Rentokil&apos;s
+      IoT platform managing 20,000+ devices across the UK, boosting test
+      coverage from 62% to 81% along the way.
     </>,
     <>
       <strong>What drives me</strong> is the intersection of technical
-      excellence and real-world impact. I've ranked in the top 4% on LeetCode
-      and placed in the top 0.8% in competitive programming competitions. But
-      I'm equally passionate about the human side – mentoring teams, running
-      sprints as scrum master, and translating complex technical decisions for
-      investors and stakeholders.
+      excellence and real-world impact. I&apos;ve ranked in the top 4% on
+      LeetCode and placed in the top 0.8% in competitive programming
+      competitions. But I&apos;m equally passionate about the human side -
+      mentoring teams, running sprints as scrum master, and translating complex
+      technical decisions for investors and stakeholders.
     </>,
     <>
       <strong>My journey</strong> started unconventionally. At 18, while
@@ -38,16 +38,16 @@ const AboutSection: FC = () => {
       resourcefulness beats resources every time.
     </>,
     <>
-      <strong>Beyond the terminal</strong>, you'll find me training as a Judo
-      black belt, exploring new countries as a digital nomad, or improving my
-      Spanish. I believe diverse experiences make better engineers – whether
-      it's the discipline from martial arts or the adaptability from constant
-      travel.
+      <strong>Beyond the terminal</strong>, you&apos;ll find me training as a
+      Judo black belt, exploring new countries as a digital nomad, or improving
+      my Spanish. I believe diverse experiences make better engineers - whether
+      it&apos;s the discipline from martial arts or the adaptability from
+      constant travel.
     </>,
     <>
-      <strong>I'm drawn to</strong> ambitious teams solving hard problems. If
-      you're building something that matters and need someone who can ship fast
-      without sacrificing quality, let's talk.
+      <strong>I&apos;m drawn to</strong> ambitious teams solving hard problems.
+      If you&apos;re building something that matters and need someone who can
+      ship fast without sacrificing quality, let&apos;s talk.
     </>,
   ]
 
