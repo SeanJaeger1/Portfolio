@@ -334,12 +334,8 @@ const SkillsSection: FC = () => {
             </div>
           </div>
           <div className="text-center p-4 bg-white/70 rounded-lg shadow-sm">
-            <div className="text-2xl font-bold text-teal-600 mb-1">
-              Top 0.8%
-            </div>
-            <div className="text-sm text-slate-600">
-              20K+ Competition Placement
-            </div>
+            <div className="text-2xl font-bold text-teal-600 mb-1">£4M</div>
+            <div className="text-sm text-slate-600">Raised Across StartUps</div>
           </div>
           <div className="text-center p-4 bg-white/70 rounded-lg shadow-sm">
             <div className="text-2xl font-bold text-green-600 mb-1">

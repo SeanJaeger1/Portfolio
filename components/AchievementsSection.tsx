@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Trophy, 
-  TrendingUp, 
-  Users, 
-  Code, 
-  Award, 
+import {
+  Trophy,
+  TrendingUp,
+  Users,
+  Code,
+  Award,
   Target,
   Zap,
   Globe,
   DollarSign,
-  Medal
+  Medal,
 } from 'lucide-react'
 
 interface Achievement {
@@ -26,89 +26,101 @@ const AchievementsSection: FC = () => {
   const achievements: Achievement[] = [
     {
       icon: Trophy,
-      title: "LeetCode Ranking",
-      value: "Top 3%",
-      description: "Global ranking among millions of developers",
-      color: "text-amber-600",
-      background: "bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200/60"
+      title: 'LeetCode Ranking',
+      value: 'Top 3%',
+      description: 'Global ranking among millions of developers',
+      color: 'text-amber-600',
+      background:
+        'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200/60',
     },
     {
       icon: Medal,
-      title: "Competition Performance",
-      value: "Top 0.8%",
-      description: "20,000+ participant programming competition",
-      color: "text-violet-600",
-      background: "bg-gradient-to-br from-violet-50 to-purple-50 border-violet-200/60"
+      title: 'Competition Performance',
+      value: 'Top .8%',
+      description:
+        'Ranked top 160 of 20,000+ participants in competitive programming',
+      color: 'text-violet-600',
+      background:
+        'bg-gradient-to-br from-violet-50 to-purple-50 border-violet-200/60',
     },
     {
       icon: DollarSign,
-      title: "Funding Secured",
-      value: "€3M+",
-      description: "Direct contribution to startup funding rounds",
-      color: "text-emerald-600",
-      background: "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200/60"
+      title: 'Funding Secured',
+      value: '£4M+',
+      description: 'Direct contribution to startup funding rounds',
+      color: 'text-emerald-600',
+      background:
+        'bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200/60',
     },
     {
       icon: Users,
-      title: "User Impact",
-      value: "120K+",
-      description: "Early adopters gained through product development",
-      color: "text-blue-600",
-      background: "bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200/60"
+      title: 'User Impact',
+      value: '120K+',
+      description: 'Early adopters gained through product development',
+      color: 'text-blue-600',
+      background:
+        'bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200/60',
     },
     {
       icon: Code,
-      title: "Test Coverage",
-      value: "62% → 81%",
-      description: "Improved enterprise platform test coverage",
-      color: "text-rose-600",
-      background: "bg-gradient-to-br from-rose-50 to-pink-50 border-rose-200/60"
+      title: 'Test Coverage',
+      value: '62% → 81%',
+      description: 'Improved enterprise platform test coverage',
+      color: 'text-rose-600',
+      background:
+        'bg-gradient-to-br from-rose-50 to-pink-50 border-rose-200/60',
     },
     {
       icon: Globe,
-      title: "IoT Fleet Scale",
-      value: "10,000+",
-      description: "Devices managed in real-time monitoring platform",
-      color: "text-teal-600",
-      background: "bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200/60"
+      title: 'IoT Fleet Scale',
+      value: '10,000+',
+      description: 'Devices managed in real-time monitoring platform',
+      color: 'text-teal-600',
+      background:
+        'bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200/60',
     },
     {
       icon: Zap,
-      title: "Concurrent Connections",
-      value: "10,000+",
-      description: "Real-time application stress testing success",
-      color: "text-indigo-600",
-      background: "bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200/60"
+      title: 'Concurrent Connections',
+      value: '10,000+',
+      description:
+        'Engineered high-performance real-time systems proven at scale',
+      color: 'text-indigo-600',
+      background:
+        'bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200/60',
     },
     {
       icon: Target,
-      title: "Sprint Performance",
-      value: "6 weeks",
-      description: "Investor demo prototype delivery timeline",
-      color: "text-slate-600",
-      background: "bg-gradient-to-br from-slate-50 to-gray-50 border-slate-200/60"
-    }
+      title: 'Sprint Performance',
+      value: '6 weeks',
+      description: 'Investor demo prototype delivery timeline',
+      color: 'text-slate-600',
+      background:
+        'bg-gradient-to-br from-slate-50 to-gray-50 border-slate-200/60',
+    },
   ]
 
   const highlights = [
     {
       icon: Award,
-      title: "Founding Team Member",
-      description: "Multiple early-stage startups from idea to funding",
-      color: "text-violet-600"
+      title: 'Founding Team Member',
+      description: 'Multiple early-stage startups from idea to funding',
+      color: 'text-violet-600',
     },
     {
       icon: TrendingUp,
-      title: "Product Growth Expert",
-      description: "Consistently delivered products that scale and secure investment",
-      color: "text-emerald-600"
+      title: 'Product Growth Expert',
+      description:
+        'Consistently delivered products that scale and secure investment',
+      color: 'text-emerald-600',
     },
     {
       icon: Code,
-      title: "Technical Excellence",
-      description: "Self-taught Computer Science with focus on algorithms and system design",
-      color: "text-blue-600"
-    }
+      title: 'Technical Excellence',
+      description:
+        'Self-taught Computer Science with focus on algorithms and system design',
+      color: 'text-blue-600',
+    },
   ]
 
   return (
@@ -123,7 +135,8 @@ const AchievementsSection: FC = () => {
           Key Achievements & Impact
         </h2>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-          Quantifiable results from 5+ years of building impactful software solutions
+          Quantifiable results from 5+ years of building impactful software
+          solutions
         </p>
       </motion.div>
 
@@ -149,9 +162,7 @@ const AchievementsSection: FC = () => {
             <h3 className="font-semibold text-slate-800 mb-2">
               {achievement.title}
             </h3>
-            <p className="text-sm text-slate-600">
-              {achievement.description}
-            </p>
+            <p className="text-sm text-slate-600">{achievement.description}</p>
           </motion.div>
         ))}
       </div>
@@ -174,11 +185,13 @@ const AchievementsSection: FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.9 + (index * 0.1) }}
+              transition={{ delay: 0.9 + index * 0.1 }}
               className="text-center group"
             >
               <div className="flex justify-center mb-4">
-                <div className={`p-3 rounded-lg bg-white/80 shadow-sm group-hover:scale-110 transition-transform duration-300 ${highlight.color}`}>
+                <div
+                  className={`p-3 rounded-lg bg-white/80 shadow-sm group-hover:scale-110 transition-transform duration-300 ${highlight.color}`}
+                >
                   <highlight.icon className="w-6 h-6" />
                 </div>
               </div>
@@ -206,7 +219,8 @@ const AchievementsSection: FC = () => {
             Ready to make an impact together?
           </h3>
           <p className="text-slate-600 mb-6">
-            Let&apos;s discuss how my experience can contribute to your team&apos;s success
+            Let&apos;s discuss how my experience can contribute to your
+            team&apos;s success
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

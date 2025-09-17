@@ -101,9 +101,10 @@ const IntroSection: FC = () => {
             transition={{ delay: 0.5 }}
             className="text-lg text-slate-600 max-w-2xl mx-auto px-4 leading-relaxed"
           >
-            Proven track record building products that secure funding and scale to thousands of users. 
-            Specializing in early-stage startups with expertise in full-stack development, 
-            system architecture, and team leadership.
+            Proven track record building products that secure funding and scale
+            to thousands of users. Specializing in early-stage startups with
+            expertise in full-stack development, system architecture, and team
+            leadership.
           </motion.p>
 
           <motion.div
@@ -117,7 +118,7 @@ const IntroSection: FC = () => {
               <span className="text-blue-700">Available for opportunities</span>
             </div>
             <div className="px-4 py-2 bg-white/70 rounded-full border border-slate-200 text-slate-700 shadow-md">
-              🏆 Top 3% LeetCode • 🚀 €3M+ Funding Raised
+              🏆 Top 3% LeetCode • 🚀 £4M+ Funding Raised
             </div>
           </motion.div>
         </div>
