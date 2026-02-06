@@ -8,8 +8,8 @@
   --cinema-border: #262422;
   --cinema-text: #F0ECE6;
   --cinema-muted: #7A756E;
-  --cinema-accent: #E85D3A;
-  --cinema-accent-alt: #D4A853;
+  --cinema-accent: #3B82F6;
+  --cinema-accent-alt: #60A5FA;
 }
 
 html {
@@ -84,7 +84,7 @@ body {
 
 /* Accent selection highlight */
 ::selection {
-  background-color: rgba(232, 93, 58, 0.3);
+  background-color: rgba(59, 130, 246, 0.3);
   color: var(--cinema-text);
 }
 
