@@ -9,17 +9,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        body: ['"Outfit"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
         cinema: {
-          bg: '#0a0a0a',
-          surface: '#111111',
-          border: '#222222',
-          text: '#fafafa',
-          muted: '#888888',
-          accent: '#3b82f6',
-          accentAlt: '#06b6d4',
+          bg: '#0B0A09',
+          surface: '#151413',
+          border: '#262422',
+          text: '#F0ECE6',
+          muted: '#7A756E',
+          accent: '#E85D3A',
+          accentAlt: '#D4A853',
         },
       },
     },

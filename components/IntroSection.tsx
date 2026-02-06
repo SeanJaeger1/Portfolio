@@ -2,11 +2,11 @@ import { FC, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Terminal, FileText } from 'lucide-react'
 import { gsap } from '../utils/gsap'
-import SplitType from 'split-type'
 
 const IntroSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const nameRef = useRef<HTMLHeadingElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const descRef = useRef<HTMLParagraphElement>(null)
   const linksRef = useRef<HTMLDivElement>(null)
@@ -54,7 +54,7 @@ const IntroSection: FC = () => {
     ).matches
 
     if (prefersReduced) {
-      const els = [nameRef, subtitleRef, descRef, linksRef, ctaRef, badgesRef]
+      const els = [nameRef, lineRef, subtitleRef, descRef, linksRef, ctaRef, badgesRef]
       els.forEach((ref) => {
         if (ref.current) {
           ref.current.classList.remove('gsap-hidden')
@@ -67,21 +67,32 @@ const IntroSection: FC = () => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.3 })
 
-      // Name animation with SplitType
+      // Name lines slide up from below
       if (nameRef.current) {
-        const split = new SplitType(nameRef.current, { types: 'words' })
-        const words = split.words || []
         gsap.set(nameRef.current, { visibility: 'visible' })
-        gsap.set(words, { yPercent: 100, rotateX: 90, opacity: 0 })
+        const lines = nameRef.current.querySelectorAll('.name-line')
+        gsap.set(lines, { yPercent: 100 })
 
-        tl.to(words, {
+        tl.to(lines, {
           yPercent: 0,
-          rotateX: 0,
-          opacity: 1,
-          duration: 1,
+          duration: 1.2,
           ease: 'power3.out',
-          stagger: 0.15,
+          stagger: 0.12,
         })
+      }
+
+      // Accent line draws in from left
+      if (lineRef.current) {
+        gsap.set(lineRef.current, {
+          visibility: 'visible',
+          scaleX: 0,
+          transformOrigin: 'left center',
+        })
+        tl.to(
+          lineRef.current,
+          { scaleX: 1, duration: 0.8, ease: 'power3.inOut' },
+          '-=0.5'
+        )
       }
 
       // Subtitle
@@ -89,7 +100,7 @@ const IntroSection: FC = () => {
         gsap.set(subtitleRef.current, { visibility: 'visible' })
         tl.from(
           subtitleRef.current,
-          { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' },
+          { y: 20, opacity: 0, duration: 0.7, ease: 'power3.out' },
           '-=0.4'
         )
       }
@@ -99,8 +110,8 @@ const IntroSection: FC = () => {
         gsap.set(descRef.current, { visibility: 'visible' })
         tl.from(
           descRef.current,
-          { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' },
-          '-=0.5'
+          { y: 20, opacity: 0, duration: 0.7, ease: 'power3.out' },
+          '-=0.4'
         )
       }
 
@@ -109,8 +120,8 @@ const IntroSection: FC = () => {
         gsap.set(badgesRef.current, { visibility: 'visible' })
         tl.from(
           badgesRef.current,
-          { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' },
-          '-=0.4'
+          { y: 15, opacity: 0, duration: 0.5, ease: 'power3.out' },
+          '-=0.3'
         )
       }
 
@@ -120,8 +131,8 @@ const IntroSection: FC = () => {
         const linkEls = linksRef.current.querySelectorAll('a')
         tl.from(
           linkEls,
-          { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out' },
-          '-=0.3'
+          { y: 15, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out' },
+          '-=0.2'
         )
       }
 
@@ -130,8 +141,8 @@ const IntroSection: FC = () => {
         gsap.set(ctaRef.current, { visibility: 'visible' })
         tl.from(
           ctaRef.current,
-          { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' },
-          '-=0.3'
+          { y: 15, opacity: 0, duration: 0.5, ease: 'power3.out' },
+          '-=0.2'
         )
       }
     }, sectionRef)
@@ -143,39 +154,51 @@ const IntroSection: FC = () => {
     <section
       id="intro"
       ref={sectionRef}
-      className="h-screen flex flex-col justify-center items-center relative px-6 overflow-hidden"
+      className="min-h-screen flex items-center relative px-6 overflow-hidden"
     >
-      {/* Animated gradient background */}
+      {/* Warm gradient background */}
       <div className="absolute inset-0 -z-10">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]
-            rounded-full bg-cinema-accent/5 blur-[120px]"
+          className="absolute top-1/3 left-0 w-[700px] h-[700px]
+            rounded-full bg-cinema-accent/[0.04] blur-[150px]"
         />
         <div
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px]
-            rounded-full bg-cinema-accentAlt/5 blur-[100px]"
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px]
+            rounded-full bg-cinema-accentAlt/[0.03] blur-[120px]"
         />
       </div>
 
-      <div className="space-y-8 max-w-4xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto w-full py-20">
         <h1
           ref={nameRef}
-          className="gsap-hidden text-7xl sm:text-8xl md:text-9xl font-black text-cinema-text
-            tracking-tight leading-none pb-2 split-parent"
+          className="gsap-hidden font-display italic text-[clamp(3.5rem,11vw,9rem)]
+            leading-[0.9] tracking-[-0.02em] text-cinema-text mb-6"
         >
-          Sean Jaeger
+          <span className="block overflow-hidden">
+            <span className="name-line block">Sean</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="name-line block pb-2 pl-2">
+              Jaeger<span className="text-cinema-accent">.</span>
+            </span>
+          </span>
         </h1>
+
+        <div
+          ref={lineRef}
+          className="gsap-hidden w-20 h-[2px] bg-cinema-accent mb-8"
+        />
 
         <p
           ref={subtitleRef}
-          className="gsap-hidden text-xl md:text-2xl text-cinema-muted tracking-widest uppercase font-light"
+          className="gsap-hidden font-mono text-xs tracking-[0.3em] uppercase text-cinema-muted mb-6"
         >
-          Software Engineer &bull; 5 Years Experience &bull; Startup Specialist
+          Software Engineer &mdash; 5+ Years &mdash; Startup Specialist
         </p>
 
         <p
           ref={descRef}
-          className="gsap-hidden text-lg text-cinema-muted/80 max-w-2xl mx-auto leading-relaxed"
+          className="gsap-hidden text-lg text-cinema-muted/80 max-w-xl leading-relaxed mb-8"
         >
           Proven track record building products that secure funding and scale to
           thousands of users. Specializing in early-stage startups with expertise
@@ -184,57 +207,56 @@ const IntroSection: FC = () => {
 
         <div
           ref={badgesRef}
-          className="gsap-hidden flex flex-wrap justify-center gap-4 text-sm"
+          className="gsap-hidden flex flex-wrap gap-3 mb-10"
         >
-          <div className="flex items-center gap-2 px-4 py-2 bg-cinema-accent/10 rounded-full border border-cinema-accent/20">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-cinema-accent">Available for opportunities</span>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-cinema-accent/20 bg-cinema-accent/5">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-sm text-cinema-accent">Available for opportunities</span>
           </div>
-          <div className="px-4 py-2 bg-cinema-surface rounded-full border border-cinema-border text-cinema-muted">
-            Top 3% LeetCode &bull; £4M+ Funding Raised
+          <div className="px-4 py-2 rounded-full border border-cinema-border bg-cinema-surface/50 text-sm text-cinema-muted">
+            Top 3% LeetCode
+          </div>
+          <div className="px-4 py-2 rounded-full border border-cinema-border bg-cinema-surface/50 text-sm text-cinema-muted">
+            £4M+ Funding Raised
           </div>
         </div>
 
-        <div ref={linksRef} className="gsap-hidden flex justify-center gap-6 pt-4">
-          {socialLinks.map(({ icon: Icon, url, text, ariaLabel }) => (
-            <motion.a
-              key={url}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={ariaLabel}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative"
-            >
-              <div className="p-3 rounded-lg bg-cinema-surface/50 border border-cinema-border
-                group-hover:border-cinema-accent/30 transition-all duration-200">
-                <Icon className="w-5 h-5 text-cinema-muted group-hover:text-cinema-text transition-colors duration-200" />
-              </div>
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-cinema-muted
-                opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                {text}
-              </span>
-            </motion.a>
-          ))}
-        </div>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-8">
+          <div ref={linksRef} className="gsap-hidden flex items-center gap-6">
+            {socialLinks.map(({ icon: Icon, url, text, ariaLabel }) => (
+              <motion.a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ariaLabel}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group flex items-center gap-2 text-cinema-muted hover:text-cinema-text transition-colors duration-200"
+              >
+                <Icon className="w-4 h-4" />
+                <span className="text-sm">{text}</span>
+              </motion.a>
+            ))}
+          </div>
 
-        <div ref={ctaRef} className="gsap-hidden pt-8">
-          <a
-            href="#work"
-            onClick={handleScroll}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full
-              bg-cinema-accent hover:bg-cinema-accent/80 text-white font-medium
-              transition-all duration-200 shadow-lg shadow-cinema-accent/20 hover:shadow-cinema-accent/30"
-          >
-            View My Work
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+          <div ref={ctaRef} className="gsap-hidden">
+            <a
+              href="#work"
+              onClick={handleScroll}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full
+                bg-cinema-accent hover:bg-cinema-accent/90 text-white text-sm font-medium
+                transition-all duration-200"
             >
-              &rarr;
-            </motion.span>
-          </a>
+              View My Work
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                &rarr;
+              </motion.span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

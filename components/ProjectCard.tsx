@@ -63,7 +63,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
       case 'Live':
         return 'bg-green-500/10 text-green-400 border-green-500/20'
       case 'In Development':
-        return 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+        return 'bg-cinema-accentAlt/10 text-cinema-accentAlt border-cinema-accentAlt/20'
       default:
         return 'bg-cinema-accent/10 text-cinema-accent border-cinema-accent/20'
     }
@@ -108,7 +108,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           src={image}
           alt={`${title} Screenshot - Click to visit project`}
           fill
-          className="object-cover object-top scale-110"
+          className="object-cover object-center scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           loading="lazy"
         />
@@ -199,7 +199,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
               )}
               {metrics.impact && (
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-amber-400" />
+                  <TrendingUp className="w-4 h-4 text-cinema-accentAlt" />
                   <div>
                     <div className="text-sm font-medium text-cinema-text">
                       {metrics.impact}
@@ -217,9 +217,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3
-              bg-cinema-accent hover:bg-cinema-accent/80 text-white font-medium
-              rounded-lg transition-all duration-200"
+            className="inline-flex items-center gap-2 text-sm text-cinema-accent
+              hover:text-cinema-text transition-colors duration-200 font-medium"
           >
             <ExternalLink className="w-4 h-4" />
             {getButtonText(title)}

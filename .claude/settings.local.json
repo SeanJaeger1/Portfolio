@@ -12,7 +12,8 @@
       "Bash(pip install:*)",
       "Bash(copy:*)",
       "Bash(ls:*)",
-      "Bash(node generate_dark_cv.js:*)"
+      "Bash(node generate_dark_cv.js:*)",
+      "Bash(npx next build:*)"
     ],
     "deny": [],
     "ask": []

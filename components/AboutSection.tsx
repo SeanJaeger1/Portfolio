@@ -1,10 +1,12 @@
 import { FC, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { gsap, ScrollTrigger } from '../utils/gsap'
 import SplitType from 'split-type'
 
 const AboutSection: FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const photoRef = useRef<HTMLDivElement>(null)
 
   const paragraphs = [
     "Hi, I'm Sean.",
@@ -46,6 +48,22 @@ const AboutSection: FC = () => {
         })
       }
 
+      // Photo fade in
+      if (photoRef.current) {
+        gsap.set(photoRef.current, { opacity: 0, y: 30 })
+        gsap.to(photoRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: photoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        })
+      }
+
       // Scrub-reveal paragraphs
       const paragraphEls = sectionRef.current?.querySelectorAll('.about-paragraph')
       paragraphEls?.forEach((el) => {
@@ -62,7 +80,7 @@ const AboutSection: FC = () => {
           scrollTrigger: {
             trigger: htmlEl,
             start: 'top 85%',
-            end: 'bottom 40%',
+            end: 'bottom 60%',
             scrub: true,
           },
         })
@@ -74,22 +92,41 @@ const AboutSection: FC = () => {
 
   return (
     <section id="about" ref={sectionRef} className="mt-32 scroll-mt-24">
+      <div className="mb-2">
+        <span className="font-mono text-xs text-cinema-accent tracking-widest">01</span>
+      </div>
       <h2
         ref={headingRef}
-        className="gsap-hidden text-4xl md:text-5xl font-bold text-cinema-text mb-12"
+        className="gsap-hidden font-display text-4xl md:text-5xl text-cinema-text mb-12"
       >
         About Me
       </h2>
 
-      <div className="space-y-6 max-w-3xl">
-        {paragraphs.map((text, index) => (
-          <p
-            key={index}
-            className="about-paragraph gsap-hidden text-lg text-cinema-muted leading-relaxed
-              [&_strong]:text-cinema-accent [&_strong]:font-semibold"
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12 items-start">
+        <div className="space-y-6">
+          {paragraphs.map((text, index) => (
+            <p
+              key={index}
+              className="about-paragraph gsap-hidden text-lg text-cinema-muted leading-relaxed
+                [&_strong]:text-cinema-accent [&_strong]:font-semibold"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+          ))}
+        </div>
+
+        <div ref={photoRef} className="hidden md:block relative group sticky top-24">
+          <div className="aspect-[3/4] rounded-xl overflow-hidden border border-cinema-border
+            group-hover:border-cinema-accent/30 transition-colors duration-500">
+            <Image
+              src="/headshot.jpg"
+              alt="Sean Jaeger"
+              fill
+              className="object-cover"
+              sizes="280px"
+            />
+          </div>
+          <div className="absolute -bottom-3 -right-3 w-full h-full rounded-xl border border-cinema-accent/20 -z-10" />
+        </div>
       </div>
     </section>
   )

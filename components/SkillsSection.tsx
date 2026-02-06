@@ -19,7 +19,6 @@ interface SkillCategory {
   skills: Array<{
     name: string
     level: 'Strong' | 'Competent' | 'Familiar'
-    description?: string
   }>
 }
 
@@ -45,64 +44,64 @@ const SkillsSection: FC = () => {
       title: 'Frontend Development',
       icon: Code2,
       skills: [
-        { name: 'JavaScript & TypeScript', level: 'Strong', description: 'ES6+, Modern JS patterns' },
-        { name: 'React.js / Next.js', level: 'Strong', description: 'Hooks, Context, Redux, SSR' },
-        { name: 'React Native', level: 'Strong', description: 'Cross-platform mobile apps' },
-        { name: 'HTML5 & CSS3', level: 'Strong', description: 'Semantic markup, Flexbox, Grid' },
-        { name: 'Tailwind CSS', level: 'Strong', description: 'Utility-first styling' },
+        { name: 'JavaScript & TypeScript', level: 'Strong' },
+        { name: 'React.js / Next.js', level: 'Strong' },
+        { name: 'React Native', level: 'Strong' },
+        { name: 'HTML5 & CSS3', level: 'Strong' },
+        { name: 'Tailwind CSS', level: 'Strong' },
       ],
     },
     {
       title: 'Backend Development',
       icon: Database,
       skills: [
-        { name: 'Python', level: 'Strong', description: 'Django, FastAPI, Data Analysis' },
-        { name: 'Go', level: 'Competent', description: 'Concurrent programming, APIs' },
-        { name: 'Node.js', level: 'Competent', description: 'Express, REST APIs' },
-        { name: 'Django / DRF', level: 'Competent', description: 'Full-stack web applications' },
-        { name: 'PostgreSQL', level: 'Competent', description: 'Database design, optimization' },
+        { name: 'Python', level: 'Strong' },
+        { name: 'Go', level: 'Competent' },
+        { name: 'Node.js', level: 'Competent' },
+        { name: 'Django / DRF', level: 'Competent' },
+        { name: 'PostgreSQL', level: 'Competent' },
       ],
     },
     {
       title: 'Cloud & DevOps',
       icon: Cloud,
       skills: [
-        { name: 'AWS', level: 'Strong', description: 'EC2, S3, Lambda, RDS' },
-        { name: 'CI/CD', level: 'Strong', description: 'GitHub Actions, automated deployment' },
-        { name: 'Docker', level: 'Competent', description: 'Containerization, Docker Compose' },
-        { name: 'Ubuntu', level: 'Competent', description: 'Server administration' },
-        { name: 'Serverless', level: 'Competent', description: 'Lambda functions, API Gateway' },
+        { name: 'AWS', level: 'Strong' },
+        { name: 'CI/CD', level: 'Strong' },
+        { name: 'Docker', level: 'Competent' },
+        { name: 'Ubuntu', level: 'Competent' },
+        { name: 'Serverless', level: 'Competent' },
       ],
     },
     {
       title: 'Mobile Development',
       icon: Smartphone,
       skills: [
-        { name: 'React Native', level: 'Strong', description: 'iOS & Android apps' },
-        { name: 'Expo', level: 'Strong', description: 'Rapid prototyping, deployment' },
-        { name: 'Mobile UI/UX', level: 'Competent', description: 'Platform-specific design' },
-        { name: 'App Store Deployment', level: 'Competent', description: 'iOS & Android stores' },
+        { name: 'React Native', level: 'Strong' },
+        { name: 'Expo', level: 'Strong' },
+        { name: 'Mobile UI/UX', level: 'Competent' },
+        { name: 'App Store Deployment', level: 'Competent' },
       ],
     },
     {
       title: 'Design & Tools',
       icon: Palette,
       skills: [
-        { name: 'Figma', level: 'Strong', description: 'UI/UX design, prototyping' },
-        { name: 'Responsive Design', level: 'Strong', description: 'Mobile-first approach' },
-        { name: 'User Experience', level: 'Competent', description: 'User research, testing' },
-        { name: 'Design Systems', level: 'Competent', description: 'Component libraries' },
+        { name: 'Figma', level: 'Strong' },
+        { name: 'Responsive Design', level: 'Strong' },
+        { name: 'User Experience', level: 'Competent' },
+        { name: 'Design Systems', level: 'Competent' },
       ],
     },
     {
       title: 'Algorithms & CS',
       icon: Zap,
       skills: [
-        { name: 'Data Structures', level: 'Strong', description: 'Arrays, Trees, Graphs, Hash Tables' },
-        { name: 'Algorithms', level: 'Strong', description: 'Sorting, Searching, Dynamic Programming' },
-        { name: 'System Design', level: 'Strong', description: 'Scalable architecture patterns' },
-        { name: 'LeetCode', level: 'Strong', description: 'Top 3% globally ranked' },
-        { name: 'Competitive Programming', level: 'Strong', description: 'Top 0.8% in 20K+ competition' },
+        { name: 'Data Structures', level: 'Strong' },
+        { name: 'Algorithms', level: 'Strong' },
+        { name: 'System Design', level: 'Strong' },
+        { name: 'LeetCode', level: 'Strong' },
+        { name: 'Competitive Programming', level: 'Strong' },
       ],
     },
   ]
@@ -110,11 +109,11 @@ const SkillsSection: FC = () => {
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'Strong':
-        return 'bg-green-500/10 text-green-400 border-green-500/20'
-      case 'Competent':
         return 'bg-cinema-accent/10 text-cinema-accent border-cinema-accent/20'
+      case 'Competent':
+        return 'bg-cinema-accentAlt/10 text-cinema-accentAlt border-cinema-accentAlt/20'
       case 'Familiar':
-        return 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'
+        return 'bg-cinema-muted/10 text-cinema-muted border-cinema-muted/20'
       default:
         return 'bg-cinema-muted/10 text-cinema-muted border-cinema-border'
     }
@@ -203,9 +202,12 @@ const SkillsSection: FC = () => {
   return (
     <section id="skills" ref={sectionRef} className="my-32 scroll-mt-24">
       <div className="mb-12">
+        <div className="mb-2">
+          <span className="font-mono text-xs text-cinema-accent tracking-widest">02</span>
+        </div>
         <h2
           ref={headingRef}
-          className="gsap-hidden text-4xl md:text-5xl font-bold text-cinema-text mb-4"
+          className="gsap-hidden font-display text-4xl md:text-5xl text-cinema-text mb-4"
         >
           Technical Skills
         </h2>
@@ -230,24 +232,17 @@ const SkillsSection: FC = () => {
               </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {category.skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-medium text-cinema-text/90">
-                      {skill.name}
-                    </span>
-                    <span
-                      className={`px-2 py-0.5 rounded text-xs font-medium border ${getLevelColor(skill.level)}`}
-                    >
-                      {skill.level}
-                    </span>
-                  </div>
-                  {skill.description && (
-                    <p className="text-sm text-cinema-muted">
-                      {skill.description}
-                    </p>
-                  )}
+                <div key={skill.name} className="flex items-center justify-between">
+                  <span className="font-medium text-cinema-text/90 text-sm">
+                    {skill.name}
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-xs font-medium border ${getLevelColor(skill.level)}`}
+                  >
+                    {skill.level}
+                  </span>
                 </div>
               ))}
             </div>
@@ -258,7 +253,7 @@ const SkillsSection: FC = () => {
       {/* Notable Achievements */}
       <div className="mt-12 bg-cinema-surface rounded-xl p-6 border border-cinema-border">
         <div className="flex items-center gap-3 mb-6">
-          <Trophy className="w-6 h-6 text-amber-500" />
+          <Trophy className="w-6 h-6 text-cinema-accentAlt" />
           <h3 className="text-xl font-bold text-cinema-text">
             Notable Achievements
           </h3>

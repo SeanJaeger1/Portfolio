@@ -62,9 +62,12 @@ const WorkSection: FC = () => {
 
   return (
     <section id="work" ref={sectionRef} className="my-32 scroll-mt-24">
+      <div className="mb-2">
+        <span className="font-mono text-xs text-cinema-accent tracking-widest">04</span>
+      </div>
       <h2
         ref={headingRef}
-        className="gsap-hidden text-5xl md:text-7xl font-black text-cinema-text mb-12 split-parent"
+        className="gsap-hidden font-display italic text-5xl md:text-7xl text-cinema-text mb-12 pb-1 split-parent"
       >
         My Work
       </h2>

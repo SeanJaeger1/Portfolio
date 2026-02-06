@@ -3,26 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --cinema-bg: #0a0a0a;
-  --cinema-surface: #111111;
-  --cinema-border: #222222;
-  --cinema-text: #fafafa;
-  --cinema-muted: #888888;
-  --cinema-accent: #3b82f6;
-  --cinema-accent-alt: #06b6d4;
+  --cinema-bg: #0B0A09;
+  --cinema-surface: #151413;
+  --cinema-border: #262422;
+  --cinema-text: #F0ECE6;
+  --cinema-muted: #7A756E;
+  --cinema-accent: #E85D3A;
+  --cinema-accent-alt: #D4A853;
 }
 
 html {
   background-color: var(--cinema-bg);
   scroll-behavior: smooth;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cinema-accent) transparent;
 }
 
 body {
   background-color: var(--cinema-bg);
   color: var(--cinema-text);
+  overscroll-behavior: none;
 }
 
 /* GSAP utility classes */
@@ -52,7 +56,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.03;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
@@ -60,27 +64,27 @@ body {
   background-size: 256px 256px;
 }
 
-/* Dark scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cinema-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--cinema-border);
-  border-radius: 4px;
+  background: var(--cinema-accent);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cinema-muted);
+  background: var(--cinema-accent-alt);
 }
 
 /* Accent selection highlight */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(232, 93, 58, 0.3);
   color: var(--cinema-text);
 }
 

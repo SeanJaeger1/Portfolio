@@ -92,19 +92,19 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
       <motion.a
         href="#intro"
         onClick={handleClick}
-        className="text-cinema-text font-bold text-lg tracking-tight"
+        className="font-display italic text-xl text-cinema-text"
         whileHover={{ opacity: 0.8 }}
       >
         SJ
       </motion.a>
 
       <div className="flex items-center gap-8">
-        {links.map(({ href, label, index }) => (
+        {links.map(({ href, label }) => (
           <motion.a
             key={href}
             href={href}
             onClick={handleClick}
-            className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
+            className={`relative text-sm font-medium tracking-wide transition-colors duration-200 py-1 ${
               isActive(href)
                 ? 'text-cinema-text'
                 : 'text-cinema-muted hover:text-cinema-text'
@@ -112,11 +112,18 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
             whileHover={{ y: -1 }}
           >
             {label}
+            {isActive(href) && (
+              <motion.span
+                layoutId="navIndicator"
+                className="absolute -bottom-1 left-0 right-0 h-[2px] bg-cinema-accent rounded-full"
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+              />
+            )}
           </motion.a>
         ))}
       </div>
 
-      <span className="text-cinema-muted text-xs font-mono tracking-widest">
+      <span className="font-mono text-cinema-muted text-xs tracking-widest">
         {currentLabel}
       </span>
     </motion.nav>

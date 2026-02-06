@@ -4,7 +4,6 @@ import {
   TrendingUp,
   Users,
   Code,
-  Award,
   Target,
   Zap,
   Globe,
@@ -85,24 +84,6 @@ const AchievementsSection: FC = () => {
       title: 'Sprint Performance',
       value: '6 weeks',
       description: 'Investor demo prototype delivery timeline',
-    },
-  ]
-
-  const highlights = [
-    {
-      icon: Award,
-      title: 'Founding Team Member',
-      description: 'Multiple early-stage startups from idea to funding',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Product Growth Expert',
-      description: 'Consistently delivered products that scale and secure investment',
-    },
-    {
-      icon: Code,
-      title: 'Technical Excellence',
-      description: 'Self-taught Computer Science with focus on algorithms and system design',
     },
   ]
 
@@ -203,9 +184,12 @@ const AchievementsSection: FC = () => {
   return (
     <section id="achievements" ref={sectionRef} className="my-32 scroll-mt-24">
       <div className="mb-12 text-center">
+        <div className="mb-2">
+          <span className="font-mono text-xs text-cinema-accent tracking-widest">05</span>
+        </div>
         <h2
           ref={headingRef}
-          className="gsap-hidden text-4xl md:text-5xl font-bold text-cinema-text mb-4"
+          className="gsap-hidden font-display text-4xl md:text-5xl text-cinema-text mb-4"
         >
           Key Achievements & Impact
         </h2>
@@ -225,7 +209,7 @@ const AchievementsSection: FC = () => {
               <achievement.icon className="w-8 h-8 text-cinema-accent" />
               <div className="text-right">
                 <div
-                  className="counter-val text-2xl font-bold text-cinema-accent"
+                  className="counter-val text-2xl font-bold text-cinema-accent whitespace-nowrap"
                   data-numvalue={achievement.numericValue || 0}
                   data-prefix={achievement.prefix || ''}
                   data-suffix={achievement.suffix || ''}
@@ -242,38 +226,13 @@ const AchievementsSection: FC = () => {
         ))}
       </div>
 
-      {/* Highlights */}
-      <div className="bg-cinema-surface border border-cinema-border rounded-xl p-8 mb-12">
-        <h3 className="text-2xl font-bold text-cinema-text mb-8 text-center">
-          What Sets Me Apart
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {highlights.map((highlight) => (
-            <div key={highlight.title} className="text-center group">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 rounded-lg bg-cinema-accent/10 text-cinema-accent
-                  group-hover:scale-110 transition-transform duration-300">
-                  <highlight.icon className="w-6 h-6" />
-                </div>
-              </div>
-              <h4 className="font-semibold text-cinema-text mb-2">
-                {highlight.title}
-              </h4>
-              <p className="text-sm text-cinema-muted">
-                {highlight.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* CTA */}
       <div
         ref={ctaRef}
         className="text-center bg-cinema-surface border border-cinema-accent/20 rounded-xl p-8
-          shadow-[0_0_30px_rgba(59,130,246,0.1)]"
+          shadow-[0_0_30px_rgba(232,93,58,0.08)]"
       >
-        <h3 className="text-xl font-bold text-cinema-text mb-4">
+        <h3 className="font-display text-xl text-cinema-text mb-4">
           Ready to make an impact together?
         </h3>
         <p className="text-cinema-muted mb-6">
@@ -284,8 +243,8 @@ const AchievementsSection: FC = () => {
             href="/Sean-Jaeger-CV.pdf"
             target="_blank"
             className="inline-flex items-center gap-2 px-6 py-3 bg-cinema-accent
-              hover:bg-cinema-accent/80 text-white font-medium rounded-lg
-              transition-all duration-200 shadow-lg shadow-cinema-accent/20"
+              hover:bg-cinema-accent/90 text-white font-medium rounded-lg
+              transition-all duration-200"
           >
             <Trophy className="w-4 h-4" />
             Download CV

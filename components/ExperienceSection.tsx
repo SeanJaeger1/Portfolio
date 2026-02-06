@@ -117,7 +117,7 @@ const ExperienceSection: FC = () => {
       case 'founding':
         return 'bg-purple-500/10 text-purple-400 border-purple-500/20'
       case 'contract':
-        return 'bg-cinema-accent/10 text-cinema-accent border-cinema-accent/20'
+        return 'bg-cinema-accentAlt/10 text-cinema-accentAlt border-cinema-accentAlt/20'
       default:
         return 'bg-green-500/10 text-green-400 border-green-500/20'
     }
@@ -220,9 +220,12 @@ const ExperienceSection: FC = () => {
   return (
     <section id="experience" ref={sectionRef} className="my-32 scroll-mt-24">
       <div className="mb-12">
+        <div className="mb-2">
+          <span className="font-mono text-xs text-cinema-accent tracking-widest">03</span>
+        </div>
         <h2
           ref={headingRef}
-          className="gsap-hidden text-4xl md:text-5xl font-bold text-cinema-text mb-4"
+          className="gsap-hidden font-display text-4xl md:text-5xl text-cinema-text mb-4"
         >
           Professional Experience
         </h2>
@@ -232,17 +235,17 @@ const ExperienceSection: FC = () => {
       </div>
 
       <div ref={timelineRef} className="relative space-y-8 pl-8">
-        {/* Timeline line – starts at first dot (top-8 = 2rem) */}
+        {/* Timeline line */}
         <div
           ref={lineRef}
-          className="absolute left-[11px] top-8 w-0.5 bg-cinema-accent/50 origin-top"
-          style={{ height: 'calc(100% - 2rem)' }}
+          className="absolute left-[18px] top-[40px] w-0.5 bg-cinema-accent/50 origin-top"
+          style={{ height: 'calc(100% - 40px)' }}
         />
 
         {experiences.map((exp, index) => (
           <div key={exp.company + index} className="exp-card relative">
             {/* Timeline dot */}
-            <div className="timeline-dot absolute -left-[21px] top-8 w-4 h-4 bg-cinema-accent rounded-full border-4 border-cinema-bg z-10" />
+            <div className="timeline-dot absolute -left-[19px] top-8 w-3 h-3 bg-cinema-accent rounded-full z-10" />
 
             <div className="bg-cinema-surface border border-cinema-border rounded-xl p-6 md:p-8
               hover:border-cinema-accent/30 transition-colors duration-300">
