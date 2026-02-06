@@ -3,7 +3,17 @@
     "allow": [
       "WebSearch",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:www.ichiban.bike)",
+      "Bash(npm install:*)",
+      "Bash(npm ls:*)",
+      "Bash(del \"components\\\\Aside.tsx\" \"components\\\\ScrollLink.tsx\" \"components\\\\SiteLink.tsx\")",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(copy:*)",
+      "Bash(ls:*)",
+      "Bash(node generate_dark_cv.js:*)",
+      "Bash(npx next build:*)"
     ],
     "deny": [],
     "ask": []

@@ -3,54 +3,106 @@
 @tailwind utilities;
 
 :root {
-  --text-primary-color: #ffffff;
-  --text-secondary-color: #a3a3a3;
-  --background-color: #101010;
-
-  --header-font-size: 34px;
-  --general-font-size: 20px;
-  --small-font-size: 14px;
-  --link-text-font-size: 16px;
-  --sub-header-font-size: 28px;
-  --menu-text-font-size: 24px;
+  --cinema-bg: #0B0A09;
+  --cinema-surface: #151413;
+  --cinema-border: #262422;
+  --cinema-text: #F0ECE6;
+  --cinema-muted: #7A756E;
+  --cinema-accent: #E85D3A;
+  --cinema-accent-alt: #D4A853;
 }
 
-.site-container {
-  background-color: var(--background-color);
-  min-height: 100vh;
+html {
+  background-color: var(--cinema-bg);
+  scroll-behavior: smooth;
+  font-family: 'Outfit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cinema-accent) transparent;
 }
 
-.header {
-  font-size: var(--header-font-size);
-  color: var(--text-primary-color);
+body {
+  background-color: var(--cinema-bg);
+  color: var(--cinema-text);
+  overscroll-behavior: none;
 }
 
-.text-general {
-  font-size: var(--general-font-size);
-  color: var(--text-primary-color);
-  max-width: 600px;
+/* GSAP utility classes */
+.gsap-hidden {
+  visibility: hidden;
 }
 
-.link-text {
-  font-size: var(--small-font-size);
-  color: var(--text-secondary-color);
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
-.menu-text {
-  font-size: var(--menu-text-font-size);
-  color: var(--text-primary-color);
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
-.mobile-scroll-link {
-  border: 1px solid white;
-  font-size: var(--menu-text-font-size);
-  color: var(--text-primary-color);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: 400;
+.split-parent {
+  overflow: hidden;
 }
 
-.subheader {
-  font-size: var(--sub-header-font-size);
-  color: var(--text-primary-color);
+/* Noise/grain overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cinema-accent);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cinema-accent-alt);
+}
+
+/* Accent selection highlight */
+::selection {
+  background-color: rgba(232, 93, 58, 0.3);
+  color: var(--cinema-text);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .gsap-hidden {
+    visibility: visible !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

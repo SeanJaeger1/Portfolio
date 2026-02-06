@@ -1,6 +1,7 @@
-import { FC } from 'react'
-import { motion } from 'framer-motion'
-import { Calendar, MapPin, Briefcase } from 'lucide-react'
+import { FC, useRef, useEffect } from 'react'
+import { Calendar, Briefcase } from 'lucide-react'
+import { gsap, ScrollTrigger } from '../utils/gsap'
+import SplitType from 'split-type'
 
 type ExperienceType = 'full-time' | 'contract' | 'founding'
 
@@ -16,6 +17,11 @@ interface Experience {
 }
 
 const ExperienceSection: FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const timelineRef = useRef<HTMLDivElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
+
   const experiences: Experience[] = [
     {
       company: 'Recirculate Systems',
@@ -68,13 +74,7 @@ const ExperienceSection: FC = () => {
         'Mentored team of 3 engineers while maintaining aggressive delivery timeline for funding milestones',
         'Partnered directly with founder on technical due diligence and presenting architecture decisions to VCs during funding',
       ],
-      technologies: [
-        'React Native',
-        'Expo',
-        'TypeScript',
-        'Firebase',
-        'Analytics',
-      ],
+      technologies: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Analytics'],
       type: 'contract',
     },
     {
@@ -88,14 +88,7 @@ const ExperienceSection: FC = () => {
       achievements: [
         'Sanitized & prepared Plotly and Pandas DataFrames to generate dynamic, interactive graph views for in-depth big data analysis',
       ],
-      technologies: [
-        'React',
-        'Figma',
-        'JupyterLab',
-        'Plotly',
-        'Pandas',
-        'Python',
-      ],
+      technologies: ['React', 'Figma', 'JupyterLab', 'Plotly', 'Pandas', 'Python'],
       type: 'contract',
     },
     {
@@ -124,7 +117,7 @@ const ExperienceSection: FC = () => {
       case 'founding':
         return 'bg-purple-500/10 text-purple-400 border-purple-500/20'
       case 'contract':
-        return 'bg-blue-500/10 text-blue-400 border-blue-500/20'
+        return 'bg-cinema-accentAlt/10 text-cinema-accentAlt border-cinema-accentAlt/20'
       default:
         return 'bg-green-500/10 text-green-400 border-green-500/20'
     }
@@ -141,68 +134,142 @@ const ExperienceSection: FC = () => {
     }
   }
 
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+    if (prefersReduced) return
+
+    const ctx = gsap.context(() => {
+      // Heading
+      if (headingRef.current) {
+        const split = new SplitType(headingRef.current, { types: 'words' })
+        const words = split.words || []
+        gsap.set(headingRef.current, { visibility: 'visible', perspective: 1000 })
+        gsap.set(words, { rotateX: -90, opacity: 0, transformOrigin: '50% 0%' })
+
+        gsap.to(words, {
+          rotateX: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        })
+      }
+
+      // Timeline progress line
+      if (lineRef.current && timelineRef.current) {
+        gsap.fromTo(
+          lineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: timelineRef.current,
+              start: 'top 60%',
+              end: 'bottom 40%',
+              scrub: true,
+            },
+          }
+        )
+      }
+
+      // Cards stagger
+      const cards = timelineRef.current?.querySelectorAll('.exp-card')
+      cards?.forEach((card) => {
+        gsap.set(card, { x: -40, opacity: 0 })
+        gsap.to(card, {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        })
+      })
+
+      // Dots
+      const dots = timelineRef.current?.querySelectorAll('.timeline-dot')
+      dots?.forEach((dot) => {
+        gsap.set(dot, { scale: 0 })
+        gsap.to(dot, {
+          scale: 1,
+          duration: 0.4,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: dot,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        })
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="experience" className="my-24 scroll-mt-24">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+    <section id="experience" ref={sectionRef} className="my-32 scroll-mt-24">
+      <div className="mb-12">
+        <div className="mb-2">
+          <span className="font-mono text-xs text-cinema-accent tracking-widest">03</span>
+        </div>
+        <h2
+          ref={headingRef}
+          className="gsap-hidden font-display text-4xl md:text-5xl text-cinema-text mb-4"
+        >
           Professional Experience
         </h2>
-        <p className="text-lg text-slate-600">
+        <p className="text-lg text-cinema-muted">
           5+ years building products and scaling teams at early-stage startups
         </p>
-      </motion.div>
+      </div>
 
-      <div className="space-y-8">
+      <div ref={timelineRef} className="relative space-y-8 pl-8">
+        {/* Timeline line */}
+        <div
+          ref={lineRef}
+          className="absolute left-[18px] top-[40px] w-0.5 bg-cinema-accent/50 origin-top"
+          style={{ height: 'calc(100% - 40px)' }}
+        />
+
         {experiences.map((exp, index) => (
-          <motion.div
-            key={exp.company + index}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06 }}
-            className="relative group"
-          >
-            {index < experiences.length - 1 && (
-              <div className="absolute left-6 top-20 w-0.5 h-full bg-gradient-to-b from-blue-500/50 to-transparent" />
-            )}
+          <div key={exp.company + index} className="exp-card relative">
+            {/* Timeline dot */}
+            <div className="timeline-dot absolute -left-[19px] top-8 w-3 h-3 bg-cinema-accent rounded-full z-10" />
 
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-slate-200 shadow-lg group-hover:border-blue-500/50 transition-all duration-300">
-              <div className="absolute -left-2 top-8 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md" />
-
+            <div className="bg-cinema-surface border border-cinema-border rounded-xl p-6 md:p-8
+              hover:border-cinema-accent/30 transition-colors duration-300">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <Briefcase className="w-5 h-5 text-blue-600" />
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-800">
+                    <Briefcase className="w-5 h-5 text-cinema-accent" />
+                    <h3 className="text-xl md:text-2xl font-bold text-cinema-text">
                       {exp.role}
                     </h3>
                   </div>
-                  <h4 className="text-lg md:text-xl font-semibold text-blue-600 mb-3">
+                  <h4 className="text-lg md:text-xl font-semibold text-cinema-accent mb-3">
                     {exp.company}
                   </h4>
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-cinema-muted">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
                       <span>{exp.duration}</span>
                     </div>
-                    {exp.location && (
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{exp.location}</span>
-                      </div>
-                    )}
                   </div>
                 </div>
 
                 <div
-                  className={`px-3 py-1 rounded-full text-xs font-medium border ${getTypeColor(
-                    exp.type
-                  )}`}
+                  className={`px-3 py-1 rounded-full text-xs font-medium border ${getTypeColor(exp.type)}`}
                 >
                   {getTypeLabel(exp.type)}
                 </div>
@@ -210,48 +277,42 @@ const ExperienceSection: FC = () => {
 
               <div className="space-y-4">
                 <div>
-                  <h5 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">
+                  <h5 className="text-sm font-semibold text-cinema-muted mb-2 uppercase tracking-wide">
                     Key Responsibilities
                   </h5>
                   <ul className="space-y-2">
                     {exp.description.map((item, i) => (
-                      <li
-                        key={i}
-                        className="text-slate-400 flex items-start gap-2"
-                      >
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-slate-600">{item}</span>
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-cinema-accent rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-cinema-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h5 className="text-sm font-semibold text-slate-700 mb-2 uppercase tracking-wide">
+                  <h5 className="text-sm font-semibold text-cinema-muted mb-2 uppercase tracking-wide">
                     Key Achievements
                   </h5>
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="text-slate-400 flex items-start gap-2"
-                      >
-                        <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-slate-600">{achievement}</span>
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-cinema-accentAlt rounded-full mt-2 flex-shrink-0" />
+                        <span className="text-cinema-muted">{achievement}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h5 className="text-sm font-semibold text-slate-700 mb-3 uppercase tracking-wide">
+                  <h5 className="text-sm font-semibold text-cinema-muted mb-3 uppercase tracking-wide">
                     Technologies Used
                   </h5>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-blue-50 text-blue-700 rounded-md text-sm font-medium border border-blue-200"
+                        className="px-3 py-1 bg-cinema-accent/10 text-cinema-accent rounded-md text-sm font-medium border border-cinema-accent/20"
                       >
                         {tech}
                       </span>
@@ -260,7 +321,7 @@ const ExperienceSection: FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
