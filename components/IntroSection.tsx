@@ -175,10 +175,10 @@ const IntroSection: FC = () => {
             leading-[0.9] tracking-[-0.02em] text-cinema-text mb-6"
         >
           <span className="block overflow-hidden">
-            <span className="name-line block">Sean</span>
+            <span className="name-line block pb-9 pl-9">Sean</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="name-line block pb-2 pl-2">
+            <span className="name-line block pb-9 pl-9">
               Jaeger<span className="text-cinema-accent">.</span>
             </span>
           </span>
