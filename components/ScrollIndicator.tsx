@@ -30,35 +30,23 @@ const ScrollIndicator = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-24 right-4 z-50 lg:bottom-8 lg:right-8"
+          className="fixed bottom-24 right-4 z-50 md:bottom-8 md:right-8"
           onClick={handleClick}
         >
           <motion.div
-            animate={{
-              y: [0, 8, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
             className="group cursor-pointer flex flex-col items-center"
           >
-            <div
-              className="bg-white/10 backdrop-blur-sm rounded-full p-3 
-              shadow-lg ring-1 ring-white/20 group-hover:ring-purple-400/30 
-              transition-all duration-300 group-hover:shadow-purple-500/20"
-            >
-              <ChevronDown
-                className="w-6 h-6 text-slate-200 group-hover:text-purple-400 
-                transition-colors duration-300"
-              />
+            <div className="bg-cinema-surface/80 backdrop-blur-sm rounded-full p-3
+              shadow-lg ring-1 ring-cinema-border group-hover:ring-cinema-accent/30
+              transition-all duration-300">
+              <ChevronDown className="w-6 h-6 text-cinema-muted group-hover:text-cinema-accent transition-colors duration-300" />
             </div>
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-sm text-slate-400 mt-2 group-hover:text-purple-400
-                transition-colors duration-300"
+              className="text-sm text-cinema-muted mt-2 group-hover:text-cinema-accent transition-colors duration-300"
             >
               Scroll to explore
             </motion.span>

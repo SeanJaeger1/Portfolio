@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Home, User, Briefcase, Code, Award, Zap } from 'lucide-react'
 import useActiveSection from '../hooks/useActiveSection'
@@ -7,15 +7,16 @@ interface NavLink {
   href: string
   label: string
   icon: typeof Home
+  index: string
 }
 
 const links: NavLink[] = [
-  { href: '#intro', label: 'Home', icon: Home },
-  { href: '#about', label: 'About', icon: User },
-  { href: '#skills', label: 'Skills', icon: Code },
-  { href: '#experience', label: 'Experience', icon: Briefcase },
-  { href: '#work', label: 'Projects', icon: Zap },
-  { href: '#achievements', label: 'Achievements', icon: Award },
+  { href: '#intro', label: 'Home', icon: Home, index: '001' },
+  { href: '#about', label: 'About', icon: User, index: '002' },
+  { href: '#skills', label: 'Skills', icon: Code, index: '003' },
+  { href: '#experience', label: 'Experience', icon: Briefcase, index: '004' },
+  { href: '#work', label: 'Projects', icon: Zap, index: '005' },
+  { href: '#achievements', label: 'Achievements', icon: Award, index: '006' },
 ]
 
 const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
@@ -23,8 +24,15 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
   isMobile = false,
 }) => {
   const activeSection = useActiveSection()
+  const [scrolled, setScrolled] = useState(false)
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const href = e.currentTarget.href
     const targetId = href.replace(/.*\#/, '')
@@ -37,11 +45,14 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
     return activeSection === sectionId
   }
 
+  const activeIndex = links.findIndex((l) => isActive(l.href))
+  const currentLabel = `${String(activeIndex + 1).padStart(3, '0')} / ${String(links.length).padStart(3, '0')}`
+
   if (isMobile) {
     return (
       <motion.nav
-        className="fixed bottom-0 left-0 right-0 bg-white/95 
-          backdrop-blur-sm border-t border-slate-200 py-4 px-6 z-50 lg:hidden shadow-lg"
+        className="fixed bottom-0 left-0 right-0 bg-cinema-surface/95
+          backdrop-blur-md border-t border-cinema-border py-3 px-4 z-50 md:hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -50,25 +61,16 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
             <motion.a
               key={href}
               href={href}
-              onClick={handleScroll}
+              onClick={handleClick}
               className={`flex flex-col items-center gap-1 transition-colors duration-200 ${
                 isActive(href)
-                  ? 'text-blue-600'
-                  : 'text-slate-600 hover:text-blue-600'
+                  ? 'text-cinema-accent'
+                  : 'text-cinema-muted hover:text-cinema-text'
               }`}
               whileTap={{ scale: 0.95 }}
             >
-              <Icon
-                className={`w-5 h-5 ${isActive(href) ? 'text-blue-600' : ''}`}
-              />
-              <span
-                className={`text-xs font-medium ${isActive(href) ? 'text-blue-600' : ''}`}
-              >
-                {label}
-              </span>
-              {isActive(href) && (
-                <div className="w-1 h-1 bg-blue-600 rounded-full mt-1" />
-              )}
+              <Icon className="w-5 h-5" />
+              <span className="text-[10px] font-medium">{label}</span>
             </motion.a>
           ))}
         </div>
@@ -78,28 +80,45 @@ const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
 
   return (
     <motion.nav
-      className="hidden lg:block fixed top-12 left-12 z-50"
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
+      className={`hidden md:flex fixed top-0 left-0 right-0 z-50 items-center justify-between
+        px-8 py-4 transition-all duration-300 ${
+          scrolled
+            ? 'bg-cinema-bg/80 backdrop-blur-md border-b border-cinema-border/50'
+            : 'bg-transparent'
+        }`}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
     >
-      <div className="flex flex-col gap-4">
-        {links.map(({ href, label }) => (
+      <motion.a
+        href="#intro"
+        onClick={handleClick}
+        className="text-cinema-text font-bold text-lg tracking-tight"
+        whileHover={{ opacity: 0.8 }}
+      >
+        SJ
+      </motion.a>
+
+      <div className="flex items-center gap-8">
+        {links.map(({ href, label, index }) => (
           <motion.a
             key={href}
             href={href}
-            onClick={handleScroll}
-            className={`px-4 py-2 text-lg font-medium rounded-lg backdrop-blur-sm
-              transition-all duration-200 border ${
-                isActive(href)
-                  ? 'text-blue-600 bg-blue-50 border-blue-200'
-                  : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50 border-transparent hover:border-blue-200'
-              }`}
-            whileHover={{ x: 4 }}
+            onClick={handleClick}
+            className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
+              isActive(href)
+                ? 'text-cinema-text'
+                : 'text-cinema-muted hover:text-cinema-text'
+            }`}
+            whileHover={{ y: -1 }}
           >
             {label}
           </motion.a>
         ))}
       </div>
+
+      <span className="text-cinema-muted text-xs font-mono tracking-widest">
+        {currentLabel}
+      </span>
     </motion.nav>
   )
 }

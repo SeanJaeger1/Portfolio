@@ -4,20 +4,29 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-
-    // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       fontFamily: {
-        kaisei: ['Kaisei HarunoUmi', 'serif'],
-        'open-sans': ['Open Sans', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
+      colors: {
+        cinema: {
+          bg: '#0a0a0a',
+          surface: '#111111',
+          border: '#222222',
+          text: '#fafafa',
+          muted: '#888888',
+          accent: '#3b82f6',
+          accentAlt: '#06b6d4',
+        },
       },
     },
     screens: {
       sm: '720px',
       md: '1024px',
+      lg: '1280px',
     },
   },
   plugins: [],

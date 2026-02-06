@@ -1,9 +1,18 @@
-import { FC } from 'react'
+import { FC, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Terminal, FileText } from 'lucide-react'
-import Image from 'next/image'
+import { gsap } from '../utils/gsap'
+import SplitType from 'split-type'
 
 const IntroSection: FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const nameRef = useRef<HTMLHeadingElement>(null)
+  const subtitleRef = useRef<HTMLParagraphElement>(null)
+  const descRef = useRef<HTMLParagraphElement>(null)
+  const linksRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
+  const badgesRef = useRef<HTMLDivElement>(null)
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     const href = e.currentTarget.href
@@ -12,7 +21,7 @@ const IntroSection: FC = () => {
     elem?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const links = [
+  const socialLinks = [
     {
       icon: Github,
       text: 'Github',
@@ -39,97 +48,155 @@ const IntroSection: FC = () => {
     },
   ]
 
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
+    if (prefersReduced) {
+      const els = [nameRef, subtitleRef, descRef, linksRef, ctaRef, badgesRef]
+      els.forEach((ref) => {
+        if (ref.current) {
+          ref.current.classList.remove('gsap-hidden')
+          gsap.set(ref.current, { opacity: 1, visibility: 'visible' })
+        }
+      })
+      return
+    }
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ delay: 0.3 })
+
+      // Name animation with SplitType
+      if (nameRef.current) {
+        const split = new SplitType(nameRef.current, { types: 'words' })
+        const words = split.words || []
+        gsap.set(nameRef.current, { visibility: 'visible' })
+        gsap.set(words, { yPercent: 100, rotateX: 90, opacity: 0 })
+
+        tl.to(words, {
+          yPercent: 0,
+          rotateX: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          stagger: 0.15,
+        })
+      }
+
+      // Subtitle
+      if (subtitleRef.current) {
+        gsap.set(subtitleRef.current, { visibility: 'visible' })
+        tl.from(
+          subtitleRef.current,
+          { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' },
+          '-=0.4'
+        )
+      }
+
+      // Description
+      if (descRef.current) {
+        gsap.set(descRef.current, { visibility: 'visible' })
+        tl.from(
+          descRef.current,
+          { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' },
+          '-=0.5'
+        )
+      }
+
+      // Badges
+      if (badgesRef.current) {
+        gsap.set(badgesRef.current, { visibility: 'visible' })
+        tl.from(
+          badgesRef.current,
+          { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' },
+          '-=0.4'
+        )
+      }
+
+      // Social links
+      if (linksRef.current) {
+        gsap.set(linksRef.current, { visibility: 'visible' })
+        const linkEls = linksRef.current.querySelectorAll('a')
+        tl.from(
+          linkEls,
+          { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out' },
+          '-=0.3'
+        )
+      }
+
+      // CTA
+      if (ctaRef.current) {
+        gsap.set(ctaRef.current, { visibility: 'visible' })
+        tl.from(
+          ctaRef.current,
+          { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out' },
+          '-=0.3'
+        )
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section
       id="intro"
-      className="min-h-[calc(100vh-80px)] flex flex-col justify-center 
-      items-center relative px-4 py-8 sm:py-16"
+      ref={sectionRef}
+      className="h-screen flex flex-col justify-center items-center relative px-6 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-teal-600 opacity-10 -z-10" />
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 -z-10">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]
+            rounded-full bg-cinema-accent/5 blur-[120px]"
+        />
+        <div
+          className="absolute top-1/3 right-1/4 w-[400px] h-[400px]
+            rounded-full bg-cinema-accentAlt/5 blur-[100px]"
+        />
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="space-y-8 max-w-3xl mx-auto text-center"
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="relative w-32 h-32 mx-auto mb-12"
+      <div className="space-y-8 max-w-4xl mx-auto text-center">
+        <h1
+          ref={nameRef}
+          className="gsap-hidden text-7xl sm:text-8xl md:text-9xl font-black text-cinema-text
+            tracking-tight leading-none pb-2 split-parent"
         >
-          <Image
-            src="/headshot.jpg"
-            alt="Sean Jaeger"
-            fill
-            className="rounded-full object-cover shadow-2xl ring-4 ring-blue-500/30"
-            sizes="128px"
-            priority
-          />
-          <div
-            className="absolute -bottom-2 -right-2 bg-blue-500 w-8 h-8 rounded-full 
-            flex items-center justify-center shadow-lg"
-          >
-            <Terminal className="w-4 h-4 text-white" />
+          Sean Jaeger
+        </h1>
+
+        <p
+          ref={subtitleRef}
+          className="gsap-hidden text-xl md:text-2xl text-cinema-muted tracking-widest uppercase font-light"
+        >
+          Software Engineer &bull; 5 Years Experience &bull; Startup Specialist
+        </p>
+
+        <p
+          ref={descRef}
+          className="gsap-hidden text-lg text-cinema-muted/80 max-w-2xl mx-auto leading-relaxed"
+        >
+          Proven track record building products that secure funding and scale to
+          thousands of users. Specializing in early-stage startups with expertise
+          in full-stack development, system architecture, and team leadership.
+        </p>
+
+        <div
+          ref={badgesRef}
+          className="gsap-hidden flex flex-wrap justify-center gap-4 text-sm"
+        >
+          <div className="flex items-center gap-2 px-4 py-2 bg-cinema-accent/10 rounded-full border border-cinema-accent/20">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="text-cinema-accent">Available for opportunities</span>
           </div>
-        </motion.div>
-
-        <div className="space-y-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-blue-600 to-teal-600 pb-4"
-          >
-            Sean Jaeger
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-slate-700 mb-4"
-          >
-            Software Engineer • 5 Years Experience • Startup Specialist
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto px-4 leading-relaxed"
-          >
-            Proven track record building products that secure funding and scale
-            to thousands of users. Specializing in early-stage startups with
-            expertise in full-stack development, system architecture, and team
-            leadership.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 mt-6 text-sm"
-          >
-            <div className="flex items-center gap-2 px-4 py-2 bg-blue-500/10 rounded-full border border-blue-500/20">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-blue-700">Available for opportunities</span>
-            </div>
-            <div className="px-4 py-2 bg-white/70 rounded-full border border-slate-200 text-slate-700 shadow-md">
-              🏆 Top 3% LeetCode • 🚀 £4M+ Funding Raised
-            </div>
-          </motion.div>
+          <div className="px-4 py-2 bg-cinema-surface rounded-full border border-cinema-border text-cinema-muted">
+            Top 3% LeetCode &bull; £4M+ Funding Raised
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="flex justify-center gap-8 pt-8"
-        >
-          {links.map(({ icon: Icon, url, text, ariaLabel }) => (
+        <div ref={linksRef} className="gsap-hidden flex justify-center gap-6 pt-4">
+          {socialLinks.map(({ icon: Icon, url, text, ariaLabel }) => (
             <motion.a
               key={url}
               href={url}
@@ -140,49 +207,36 @@ const IntroSection: FC = () => {
               whileTap={{ scale: 0.95 }}
               className="group relative"
             >
-              <div
-                className="p-3 rounded-lg bg-white/70 backdrop-blur-sm shadow-lg
-                group-hover:bg-blue-500/10 transition-all duration-200
-                ring-1 ring-slate-200 group-hover:ring-blue-500/30"
-              >
-                <Icon
-                  className="w-6 h-6 text-slate-600 group-hover:text-blue-600
-                  transition-colors duration-200"
-                />
+              <div className="p-3 rounded-lg bg-cinema-surface/50 border border-cinema-border
+                group-hover:border-cinema-accent/30 transition-all duration-200">
+                <Icon className="w-5 h-5 text-cinema-muted group-hover:text-cinema-text transition-colors duration-200" />
               </div>
-              <span
-                className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-slate-600
-                opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              >
+              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-cinema-muted
+                opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                 {text}
               </span>
             </motion.a>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="pt-12"
-        >
+        <div ref={ctaRef} className="gsap-hidden pt-8">
           <a
             href="#work"
             onClick={handleScroll}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full
-              bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 text-white font-medium
-              transition-all duration-200 shadow-lg hover:shadow-blue-500/20 transform hover:scale-105"
+              bg-cinema-accent hover:bg-cinema-accent/80 text-white font-medium
+              transition-all duration-200 shadow-lg shadow-cinema-accent/20 hover:shadow-cinema-accent/30"
           >
             View My Work
             <motion.span
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              →
+              &rarr;
             </motion.span>
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }
