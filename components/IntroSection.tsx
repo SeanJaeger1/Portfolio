@@ -154,10 +154,10 @@ const IntroSection: FC = () => {
     <section
       id="intro"
       ref={sectionRef}
-      className="min-h-screen flex items-center relative px-6 overflow-hidden"
+      className="min-h-screen flex items-center relative px-6"
     >
       {/* Warm gradient background */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
           className="absolute top-1/3 left-0 w-[700px] h-[700px]
             rounded-full bg-cinema-accent/[0.04] blur-[150px]"
