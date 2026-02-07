@@ -174,10 +174,10 @@ const IntroSection: FC = () => {
           className="gsap-hidden font-display italic text-[clamp(3.5rem,11vw,9rem)]
             leading-[0.9] tracking-[-0.02em] text-cinema-text mb-6"
         >
-          <span className="block" style={{ clipPath: 'inset(-30px -30px 0 -30px)' }}>
+          <span className="block" style={{ clipPath: 'inset(-30px -30px 0 -30px)', transform: 'translateZ(0)' }}>
             <span className="name-line block">Sean</span>
           </span>
-          <span className="block" style={{ clipPath: 'inset(-30px -30px -30px -30px)' }}>
+          <span className="block" style={{ clipPath: 'inset(-30px -30px -30px -30px)', transform: 'translateZ(0)' }}>
             <span className="name-line block">
               Jaeger<span className="text-cinema-accent">.</span>
             </span>
