@@ -59,25 +59,31 @@ const ContactSection: FC = () => {
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const form = event.currentTarget
     setSending(true)
     setResult('')
 
-    const formData = new FormData(event.currentTarget)
-    formData.append('access_key', '8e24422b-5fef-4703-9a12-ff6b469c179c')
+    try {
+      const formData = new FormData(form)
+      formData.append('access_key', '8e24422b-5fef-4703-9a12-ff6b469c179c')
 
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData,
-    })
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
 
-    const data = await response.json()
-    setSending(false)
+      const data = await response.json()
 
-    if (data.success) {
-      setResult('Message sent — I\'ll get back to you soon.')
-      event.currentTarget.reset()
-    } else {
+      if (data.success) {
+        setResult('Message sent — I\'ll get back to you soon.')
+        form.reset()
+      } else {
+        setResult('Something went wrong. Please try again.')
+      }
+    } catch {
       setResult('Something went wrong. Please try again.')
+    } finally {
+      setSending(false)
     }
   }
 
