@@ -1,7 +1,6 @@
-import { FC, useRef, useEffect } from 'react'
+import { FC, useRef } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { ExternalLink, Calendar, Users, TrendingUp } from 'lucide-react'
-import { gsap } from '../utils/gsap'
 
 interface ProjectCardProps {
   title: string
@@ -33,30 +32,6 @@ const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches
-    if (prefersReduced || !containerRef.current) return
-
-    const img = containerRef.current.querySelector('img')
-    if (!img) return
-
-    const ctx = gsap.context(() => {
-      gsap.to(img, {
-        yPercent: -10,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -102,13 +77,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="block overflow-hidden relative aspect-video"
+        className="block overflow-hidden relative"
       >
         <Image
           src={image}
           alt={`${title} Screenshot - Click to visit project`}
-          fill
-          className="object-cover object-center scale-110"
+          className="w-full h-auto"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           loading="lazy"
         />

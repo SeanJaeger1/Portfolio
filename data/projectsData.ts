@@ -1,8 +1,9 @@
 import { StaticImageData } from 'next/image'
-import HLImage from '@/public/HLscreenshot.jpg'
-import CPImage from '@/public/CPscreenshot.png'
-import RCImage from '@/public/RCScreenshot.jpg'
-import EloquentImage from '@/public/EloquentScreenshot.png'
+import HLImage from '@/public/HLscreenshot.webp'
+import CPImage from '@/public/CPscreenshot.webp'
+import RCImage from '@/public/RCScreenshot.webp'
+import EloquentImage from '@/public/EloquentScreenshot.webp'
+import TSImage from '@/public/TSScreenshot.webp'
 
 export interface Project {
   title: string
@@ -25,6 +26,31 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: 'Teiwaz Striking',
+    image: TSImage,
+    link: 'https://www.teiwazstriking.com',
+    role: 'Designer & Developer',
+    timeline: '2026',
+    status: 'Live',
+    featured: true,
+    metrics: {
+      timeline: 'Solo build',
+      impact: 'Full brand & web presence',
+    },
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'UI/UX Design'],
+    description: [
+      'Designed and developed a complete web presence for an elite combat sports gym in Phuket, Thailand, covering MMA striking, boxing, K1 kickboxing, wrestling, and strength & conditioning programs.',
+      'Crafted a dark, bold visual identity with gold accents that reflects the intensity of the gym, featuring interactive program cards, a professional fighter roster, class schedules, and tiered membership pricing.',
+      'Built with a focus on conversion — clear calls-to-action, smooth scroll navigation, and a contact form drive visitor engagement and membership inquiries.',
+    ],
+    impact: [
+      'Designed the full brand identity and visual language from scratch',
+      'Built a responsive, high-performance site with optimized images and smooth interactions',
+      'Created an intuitive information architecture spanning programs, schedules, pricing, and fighter profiles',
+      'Implemented a contact system to convert site visitors into gym members',
+    ],
+  },
   {
     title: 'Eloquent',
     image: EloquentImage,

@@ -8,6 +8,7 @@ import SkillsSection from '../components/SkillsSection'
 import ExperienceSection from '../components/ExperienceSection'
 import WorkSection from '../components/WorkSection'
 import AchievementsSection from '../components/AchievementsSection'
+import ContactSection from '../components/ContactSection'
 import ScrollIndicator from '../components/ScrollIndicator'
 
 const Home: FC = () => {
@@ -36,6 +37,7 @@ const Home: FC = () => {
           <ExperienceSection />
           <WorkSection />
           <AchievementsSection />
+          <ContactSection />
         </div>
       </main>
 

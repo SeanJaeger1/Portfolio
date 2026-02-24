@@ -11,6 +11,7 @@ const useActiveSection = () => {
       'experience',
       'work',
       'achievements',
+      'contact',
     ]
 
     const getActiveSection = () => {

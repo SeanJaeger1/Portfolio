@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Home, User, Briefcase, Code, Award, Zap } from 'lucide-react'
+import { Home, User, Briefcase, Code, Award, Zap, Mail } from 'lucide-react'
 import useActiveSection from '../hooks/useActiveSection'
 
 interface NavLink {
@@ -17,6 +17,7 @@ const links: NavLink[] = [
   { href: '#experience', label: 'Experience', icon: Briefcase, index: '004' },
   { href: '#work', label: 'Projects', icon: Zap, index: '005' },
   { href: '#achievements', label: 'Achievements', icon: Award, index: '006' },
+  { href: '#contact', label: 'Contact', icon: Mail, index: '007' },
 ]
 
 const Navigation: FC<{ className?: string; isMobile?: boolean }> = ({
